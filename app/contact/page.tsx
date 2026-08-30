@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TrialBookingModal from "@/components/TrialBookingModal";
@@ -102,20 +103,45 @@ export default function ContactPage() {
         
         {/* Page Hero Header */}
         <section className="relative py-12 text-center overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#E5A919]/10 rounded-full blur-[150px] pointer-events-none" />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2 }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#E5A919]/10 rounded-full blur-[150px] pointer-events-none"
+          />
           
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 space-y-4">
-            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#E5A919]/20 border border-[#E5A919] text-[#E5A919] text-xs font-medium uppercase tracking-widest">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 space-y-4"
+          >
+            <motion.span
+              initial={{ opacity: 0, y: -15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#E5A919]/20 border border-[#E5A919] text-[#E5A919] text-xs font-medium uppercase tracking-widest"
+            >
               <Sparkles className="w-3.5 h-3.5" />
               WE ARE HERE FOR YOUR TRANSFORMATION
-            </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium uppercase tracking-tight text-white">
+            </motion.span>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-medium uppercase tracking-tight text-white"
+            >
               CONTACT <span className="text-[#E5A919]">BROTHER&apos;S FITNESS</span>
-            </h1>
-            <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto"
+            >
               Book your free 1-on-1 trial session, visit either of our two premier branches, or talk directly with our head coaches on WhatsApp.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </section>
 
         {/* 4 Fast Contact Bar */}
@@ -123,7 +149,12 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             
             {/* 1. Primary WhatsApp (First Mobile Number) */}
-            <a
+            <motion.a
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ y: -4 }}
               href="https://wa.me/919505560783?text=Hi%20Brothers%20Fitness%2C%20I%20want%20to%20know%20more%20about%20your%201-on-1%20Personal%20Training%20and%20100%25%20Result%20Guarantee!"
               target="_blank"
               rel="noreferrer"
@@ -141,10 +172,17 @@ export default function ContactPage() {
                 </span>
                 <span className="text-[10px] text-green-400 block mt-0.5">● Instant Replies</span>
               </div>
-            </a>
+            </motion.a>
 
             {/* 2. Phone Call (Both Numbers) */}
-            <div className="p-5 rounded-2xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all group flex items-center gap-4 shadow-lg">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ y: -4 }}
+              className="p-5 rounded-2xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all group flex items-center gap-4 shadow-lg"
+            >
               <div className="w-12 h-12 rounded-xl bg-[#E5A919]/15 border border-[#E5A919]/30 flex items-center justify-center text-[#E5A919] shrink-0 group-hover:scale-110 transition-transform">
                 <Phone className="w-6 h-6" />
               </div>
@@ -161,10 +199,15 @@ export default function ContactPage() {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* 3. Official Email */}
-            <a
+            <motion.a
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ y: -4 }}
               href="mailto:brothers.fitness640@gmail.com"
               className="p-5 rounded-2xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all group flex items-center gap-4 shadow-lg"
             >
@@ -179,10 +222,17 @@ export default function ContactPage() {
                   brothers.fitness640@gmail.com
                 </span>
               </div>
-            </a>
+            </motion.a>
 
             {/* 4. Operating Timings */}
-            <div className="p-5 rounded-2xl bg-[#121214] border border-zinc-800 flex items-center gap-4 shadow-lg">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{ y: -4 }}
+              className="p-5 rounded-2xl bg-[#121214] border border-zinc-800 flex items-center gap-4 shadow-lg"
+            >
               <div className="w-12 h-12 rounded-xl bg-[#E5A919]/15 border border-[#E5A919]/30 flex items-center justify-center text-[#E5A919] shrink-0">
                 <Clock className="w-6 h-6" />
               </div>
@@ -195,7 +245,7 @@ export default function ContactPage() {
                 </span>
                 <span className="text-[10px] text-amber-400 block mt-0.5">Open All 7 Days</span>
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </section>
@@ -208,7 +258,13 @@ export default function ContactPage() {
             <div className="lg:col-span-5 space-y-6">
               
               {/* Guarantee Highlight Box */}
-              <div className="p-6 rounded-3xl bg-gradient-to-br from-[#1c1917] to-[#0c0a09] border-2 border-[#E5A919]/70 shadow-2xl space-y-3">
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.7 }}
+                className="p-6 rounded-3xl bg-gradient-to-br from-[#1c1917] to-[#0c0a09] border-2 border-[#E5A919]/70 shadow-2xl space-y-3"
+              >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-[#E5A919] flex items-center justify-center text-black font-medium">
                     <ShieldCheck className="w-6 h-6" />
@@ -225,10 +281,16 @@ export default function ContactPage() {
                 <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
                   Follow our strict diet chart and assigned daily 1-on-1 personal training. If you see no measurable physical improvement, <strong className="text-white">your full membership fee is refunded</strong>.
                 </p>
-              </div>
+              </motion.div>
 
               {/* Branch 1 Card */}
-              <div className="p-6 rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all space-y-4 shadow-xl">
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.7, delay: 0.15 }}
+                className="p-6 rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all space-y-4 shadow-xl"
+              >
                 <div className="flex items-center justify-between">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5A919]/15 border border-[#E5A919]/40 text-[#E5A919] text-xs font-medium uppercase">
                     <Building2 className="w-3.5 h-3.5" />
@@ -267,10 +329,16 @@ export default function ContactPage() {
                     <span>Get Directions</span>
                   </a>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Branch 2 Card */}
-              <div className="p-6 rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all space-y-4 shadow-xl">
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="p-6 rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all space-y-4 shadow-xl"
+              >
                 <div className="flex items-center justify-between">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5A919]/15 border border-[#E5A919]/40 text-[#E5A919] text-xs font-medium uppercase">
                     <Building2 className="w-3.5 h-3.5" />
@@ -309,12 +377,18 @@ export default function ContactPage() {
                     <span>Get Directions</span>
                   </a>
                 </div>
-              </div>
+              </motion.div>
 
             </div>
 
             {/* Right Col (7 cols): Interactive Inquiry & Free Trial Pass Form */}
-            <div className="lg:col-span-7">
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8 }}
+              className="lg:col-span-7"
+            >
               <div className="rounded-3xl p-8 sm:p-10 bg-gradient-to-b from-[#141416] to-[#0c0c0e] border border-zinc-800 shadow-2xl relative">
                 
                 {isSubmitted ? (
@@ -348,89 +422,87 @@ export default function ContactPage() {
                     </div>
                   </div>
                 ) : (
-                  <div>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5A919]/15 border border-[#E5A919]/40 text-[#E5A919] text-xs font-medium uppercase tracking-wider mb-3">
-                      <Sparkles className="w-4 h-4" />
-                      Free 1-on-1 Personal Training Pass
+                  <div className="space-y-6">
+                    <div>
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E5A919]/15 border border-[#E5A919]/30 text-[#E5A919] text-xs font-medium uppercase tracking-wider mb-2">
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>Claim Your Free Pass</span>
+                      </div>
+                      <h2 className="text-2xl sm:text-3xl font-medium uppercase tracking-tight text-white">
+                        Book a Free 1-on-1 Trial Session
+                      </h2>
+                      <p className="text-gray-400 text-xs sm:text-sm mt-1">
+                        Fill out the details below. Our team will get back to you immediately with slot confirmation.
+                      </p>
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-medium uppercase tracking-tight text-white mb-2">
-                      Send an Inquiry & <span className="text-[#E5A919]">Claim Trial</span>
-                    </h2>
-                    <p className="text-xs sm:text-sm text-gray-400 mb-6">
-                      Fill out the form below to reserve your 1-on-1 trial workout and customized body assessment at your chosen branch.
-                    </p>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
-                      
-                      {/* Name */}
-                      <div>
-                        <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
-                          Full Name *
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          placeholder="Your Full Name"
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors"
-                        />
-                      </div>
-
-                      {/* Phone & Email */}
+                      {/* Name & Phone */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                           <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
-                            Phone Number *
+                            Your Full Name *
+                          </label>
+                          <input
+                            type="text"
+                            required
+                            placeholder="e.g. Rahul Sharma"
+                            value={formData.name}
+                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                            className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors placeholder:text-zinc-600"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
+                            Phone Number (WhatsApp) *
                           </label>
                           <input
                             type="tel"
                             required
-                            placeholder="+91 95055 60783"
+                            placeholder="e.g. 9876543210"
                             value={formData.phone}
                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                            className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors"
-                          />
-                        </div>
-
-                        <div>
-                          <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
-                            Email Address
-                          </label>
-                          <input
-                            type="email"
-                            placeholder="your.email@example.com"
-                            value={formData.email}
-                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors"
+                            className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors placeholder:text-zinc-600"
                           />
                         </div>
                       </div>
 
-                      {/* Branch Selection */}
-                      <div>
-                        <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
-                          Select Nearest Branch *
-                        </label>
-                        <select
-                          value={formData.branch}
-                          onChange={(e) => setFormData({ ...formData, branch: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors"
-                        >
-                          <option value="1st Branch (Kunchanapalli) - 522501">
-                            1st Branch (Kunchanapalli, Near Bank of Baroda - 522501)
-                          </option>
-                          <option value="2nd Branch (KL University Rd) - 522502">
-                            2nd Branch (KL University Road, Vaddeswaram - 522502)
-                          </option>
-                        </select>
-                      </div>
-
-                      {/* Fitness Goal & Time Slot */}
+                      {/* Email & Preferred Branch */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                           <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
-                            Primary Goal
+                            Email Address (Optional)
+                          </label>
+                          <input
+                            type="email"
+                            placeholder="e.g. rahul@example.com"
+                            value={formData.email}
+                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors placeholder:text-zinc-600"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
+                            Select Branch *
+                          </label>
+                          <select
+                            value={formData.branch}
+                            onChange={(e) => setFormData({ ...formData, branch: e.target.value })}
+                            className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors"
+                          >
+                            <option>1st Branch (Kunchanapalli - 522501)</option>
+                            <option>2nd Branch (KL University Rd - 522502)</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      {/* Goal & Preferred Time Slot */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
+                            Primary Fitness Goal
                           </label>
                           <select
                             value={formData.goal}
@@ -492,28 +564,38 @@ export default function ContactPage() {
                 )}
 
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </section>
 
         {/* FAQ Accordion Section */}
         <section id="faq" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="text-center mb-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10"
+          >
             <span className="text-xs font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
               FREQUENTLY ASKED QUESTIONS
             </span>
             <h2 className="text-3xl sm:text-4xl font-medium uppercase tracking-tight text-white">
               Got Questions? We&apos;ve Got Answers.
             </h2>
-          </div>
+          </motion.div>
 
           <div className="space-y-4">
             {faqs.map((faq, idx) => {
               const isOpen = openFaq === idx;
               return (
-                <div
+                <motion.div
                   key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.08 }}
                   className="rounded-2xl bg-[#121214] border border-zinc-800 overflow-hidden transition-all"
                 >
                   <button
@@ -533,7 +615,7 @@ export default function ContactPage() {
                       {faq.a}
                     </div>
                   )}
-                </div>
+                </motion.div>
               );
             })}
           </div>

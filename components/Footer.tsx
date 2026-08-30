@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Phone, Mail, Clock, MessageCircle, ShieldCheck } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
@@ -14,7 +15,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-zinc-900">
           
           {/* Col 1: Brand & Bio */}
-          <div className="lg:col-span-4 space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-4 space-y-4"
+          >
             <Link href="/" className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#E5A919] bg-black flex items-center justify-center p-1 shadow-lg shadow-[#E5A919]/20">
                 <Image
@@ -26,10 +33,10 @@ export default function Footer() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-black uppercase tracking-wider text-white">
+                <span className="text-xl font-medium uppercase tracking-wider text-white">
                   BROTHER&apos;S
                 </span>
-                <span className="text-[10px] tracking-[0.25em] font-bold text-[#E5A919] uppercase">
+                <span className="text-[10px] tracking-[0.25em] font-medium text-[#E5A919] uppercase">
                   FITNESS CLUB
                 </span>
               </div>
@@ -91,11 +98,17 @@ export default function Footer() {
                 <MessageCircle className="w-4 h-4" />
               </a>
             </div>
-          </div>
+          </motion.div>
 
 
           {/* Col 2: Quick Links */}
-          <div className="lg:col-span-2 space-y-3">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-2 space-y-3"
+          >
             <h4 className="text-sm font-medium uppercase tracking-wider text-white">
               Quick Links
             </h4>
@@ -126,10 +139,16 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Col 3: Branches */}
-          <div className="lg:col-span-3 space-y-3">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-3 space-y-3"
+          >
             <h4 className="text-sm font-medium uppercase tracking-wider text-white">
               Our Branches
             </h4>
@@ -148,10 +167,16 @@ export default function Footer() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Col 4: Contact Us */}
-          <div className="lg:col-span-3 space-y-3">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="lg:col-span-3 space-y-3"
+          >
             <h4 className="text-sm font-medium uppercase tracking-wider text-white">
               Get in Touch
             </h4>
@@ -178,20 +203,27 @@ export default function Footer() {
                 <span>Mon - Sun: 5:00 AM – 10:00 PM</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
         </div>
 
         {/* Bottom Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500"
+        >
           <p>© 2026 Brother&apos;s Fitness. All Rights Reserved.</p>
           <div className="flex items-center gap-2 text-amber-400/90 font-medium">
             <ShieldCheck className="w-4 h-4 text-[#E5A919]" />
             <span>Dedicated 1-on-1 PT Gym • 100% Results or Money-Back Guarantee</span>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </footer>
   );
 }
+

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TrialBookingModal from "@/components/TrialBookingModal";
@@ -279,26 +280,56 @@ export default function AboutPage() {
             <div className="absolute inset-0 bg-gradient-to-b from-[#070707]/90 via-[#070707]/80 to-[#070707]" />
           </div>
 
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#E5A919]/15 rounded-full blur-[160px] pointer-events-none" />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2 }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#E5A919]/15 rounded-full blur-[160px] pointer-events-none"
+          />
 
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 space-y-5">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E5A919]/20 border border-[#E5A919] text-[#E5A919] text-xs font-medium uppercase tracking-widest">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 space-y-5"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E5A919]/20 border border-[#E5A919] text-[#E5A919] text-xs font-medium uppercase tracking-widest"
+            >
               <Sparkles className="w-4 h-4" />
               10+ Years of Transformation Excellence
-            </div>
+            </motion.div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium uppercase tracking-tight text-white leading-[1.08]">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium uppercase tracking-tight text-white leading-[1.08]"
+            >
               ABOUT <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-[#E5A919] to-amber-500">
                 BROTHER&apos;S FITNESS CLUB
               </span>
-            </h1>
+            </motion.h1>
 
-            <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
+            >
               Pioneering dedicated 1-on-1 personal training for every candidate, backed by customized nutrition blueprints and our ironclad 100% money-back result guarantee.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-wrap items-center justify-center gap-4 pt-4"
+            >
               <button
                 onClick={() => handleOpenTrialModal("About Hero Free Trial")}
                 className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#E5A919] via-[#F59E0B] to-[#D97706] text-black font-medium text-xs uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-xl shadow-[#E5A919]/30 flex items-center gap-2 cursor-pointer"
@@ -313,8 +344,8 @@ export default function AboutPage() {
               >
                 Visit Our Branches
               </Link>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </section>
 
 
@@ -325,7 +356,13 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               
-              <div className="lg:col-span-6 relative">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.8 }}
+                className="lg:col-span-6 relative"
+              >
                 <div className="relative rounded-3xl overflow-hidden border-2 border-[#E5A919]/60 shadow-2xl bg-black group">
                   <div className="relative h-[420px] sm:h-[500px] w-full">
                     <Image
@@ -351,9 +388,15 @@ export default function AboutPage() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="lg:col-span-6 space-y-6">
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.8 }}
+                className="lg:col-span-6 space-y-6"
+              >
                 <div>
                   <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
                     OUR STORY & FOUNDING
@@ -371,18 +414,24 @@ export default function AboutPage() {
 
                 {/* Milestones grid */}
                 <div className="grid grid-cols-2 gap-4 pt-2">
-                  <div className="p-4 rounded-2xl bg-[#141416] border border-zinc-800 space-y-1">
+                  <motion.div
+                    whileHover={{ y: -4 }}
+                    className="p-4 rounded-2xl bg-[#141416] border border-zinc-800 space-y-1"
+                  >
                     <span className="text-2xl font-medium text-[#E5A919]">2014</span>
                     <h5 className="text-xs font-medium uppercase text-white">First Branch Founded</h5>
                     <p className="text-[11px] text-gray-400">Launched in Kunchanapalli with 1-on-1 PT.</p>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-[#141416] border border-zinc-800 space-y-1">
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ y: -4 }}
+                    className="p-4 rounded-2xl bg-[#141416] border border-zinc-800 space-y-1"
+                  >
                     <span className="text-2xl font-medium text-[#E5A919]">5,000+</span>
                     <h5 className="text-xs font-medium uppercase text-white">Transformations</h5>
                     <p className="text-[11px] text-gray-400">Documented weight loss and muscle building.</p>
-                  </div>
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
 
             </div>
           </div>
@@ -400,7 +449,13 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
               {/* Left Spotlight Box (5 cols) */}
-              <div className="lg:col-span-5 p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-[#1c1917] via-[#121214] to-black border-2 border-[#E5A919] shadow-2xl relative space-y-6">
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.7 }}
+                className="lg:col-span-5 p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-[#1c1917] via-[#121214] to-black border-2 border-[#E5A919] shadow-2xl relative space-y-6"
+              >
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5A919]/20 border border-[#E5A919] text-[#E5A919] text-xs font-medium uppercase tracking-wider">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>WHO WE ARE</span>
@@ -431,13 +486,20 @@ export default function AboutPage() {
                   <span>Experience the Brother&apos;s Difference</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
-              </div>
+              </motion.div>
 
               {/* Right Stacked Horizontal Feature Rows (7 cols) */}
               <div className="lg:col-span-7 space-y-4">
                 
                 {/* Feature 01 */}
-                <div className="p-6 rounded-3xl bg-[#121214] border-l-4 border-l-[#E5A919] border-y border-r border-zinc-800/80 hover:border-zinc-700 transition-all flex flex-col sm:flex-row items-start gap-4 group">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  whileHover={{ x: 6 }}
+                  className="p-6 rounded-3xl bg-[#121214] border-l-4 border-l-[#E5A919] border-y border-r border-zinc-800/80 hover:border-zinc-700 transition-all flex flex-col sm:flex-row items-start gap-4 group"
+                >
                   <div className="w-12 h-12 rounded-2xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 group-hover:scale-110 transition-transform">
                     <Users className="w-6 h-6" />
                   </div>
@@ -452,10 +514,17 @@ export default function AboutPage() {
                       Every candidate is paired with a dedicated personal trainer who supervises posture, tracks progressive overload, and prevents injuries during every workout session.
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Feature 02 */}
-                <div className="p-6 rounded-3xl bg-[#121214] border-l-4 border-l-[#E5A919] border-y border-r border-zinc-800/80 hover:border-zinc-700 transition-all flex flex-col sm:flex-row items-start gap-4 group">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  whileHover={{ x: 6 }}
+                  className="p-6 rounded-3xl bg-[#121214] border-l-4 border-l-[#E5A919] border-y border-r border-zinc-800/80 hover:border-zinc-700 transition-all flex flex-col sm:flex-row items-start gap-4 group"
+                >
                   <div className="w-12 h-12 rounded-2xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 group-hover:scale-110 transition-transform">
                     <ShieldCheck className="w-6 h-6" />
                   </div>
@@ -470,10 +539,17 @@ export default function AboutPage() {
                       We stand behind our coaching. If you adhere to our prescribed diet chart and daily workout routine with no physical improvement, your full fee is refunded.
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Feature 03 */}
-                <div className="p-6 rounded-3xl bg-[#121214] border-l-4 border-l-[#E5A919] border-y border-r border-zinc-800/80 hover:border-zinc-700 transition-all flex flex-col sm:flex-row items-start gap-4 group">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  whileHover={{ x: 6 }}
+                  className="p-6 rounded-3xl bg-[#121214] border-l-4 border-l-[#E5A919] border-y border-r border-zinc-800/80 hover:border-zinc-700 transition-all flex flex-col sm:flex-row items-start gap-4 group"
+                >
                   <div className="w-12 h-12 rounded-2xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 group-hover:scale-110 transition-transform">
                     <Compass className="w-6 h-6" />
                   </div>
@@ -488,7 +564,7 @@ export default function AboutPage() {
                       Customized calorie & macro meal blueprints combined with periodized strength training routines designed specifically around your body type and metabolism.
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
               </div>
 
@@ -505,7 +581,14 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               
               {/* Mission Card */}
-              <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#18181b] to-[#0c0c0e] border border-zinc-800 hover:border-[#E5A919] transition-all space-y-4 shadow-2xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ y: -6 }}
+                className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#18181b] to-[#0c0c0e] border border-zinc-800 hover:border-[#E5A919] transition-all space-y-4 shadow-2xl"
+              >
                 <div className="w-14 h-14 rounded-2xl bg-[#E5A919]/15 border border-[#E5A919]/30 flex items-center justify-center text-[#E5A919]">
                   <Target className="w-7 h-7" />
                 </div>
@@ -518,10 +601,17 @@ export default function AboutPage() {
                 <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
                   To eliminate gym confusion and intimidation by making elite 1-on-1 personal training, customized macro nutrition, and dedicated coach accountability accessible to every individual seeking lasting health and physique transformations.
                 </p>
-              </div>
+              </motion.div>
 
               {/* Vision Card */}
-              <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#18181b] to-[#0c0c0e] border border-zinc-800 hover:border-[#E5A919] transition-all space-y-4 shadow-2xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                whileHover={{ y: -6 }}
+                className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#18181b] to-[#0c0c0e] border border-zinc-800 hover:border-[#E5A919] transition-all space-y-4 shadow-2xl"
+              >
                 <div className="w-14 h-14 rounded-2xl bg-[#E5A919]/15 border border-[#E5A919]/30 flex items-center justify-center text-[#E5A919]">
                   <Sparkles className="w-7 h-7" />
                 </div>
@@ -534,7 +624,7 @@ export default function AboutPage() {
                 <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
                   To establish Brother&apos;s Fitness as the most trusted transformation destination across the region — recognized for zero-compromise coaching standards, state-of-the-art facilities, and unconditional 100% money-back result integrity.
                 </p>
-              </div>
+              </motion.div>
 
             </div>
           </div>
@@ -546,7 +636,13 @@ export default function AboutPage() {
         ======================================================== */}
         <section className="py-20 bg-[#070707] relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-3xl mx-auto mb-14">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-3xl mx-auto mb-14"
+            >
               <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
                 CORE PRINCIPLES
               </span>
@@ -556,7 +652,7 @@ export default function AboutPage() {
               <p className="text-gray-400 text-sm sm:text-base">
                 The foundational pillars behind every rep, every diet chart, and every success story at Brother&apos;s Fitness.
               </p>
-            </div>
+            </motion.div>
 
             {/* 6-Item Bento Grid with Faint Large Numbers and Top Glowing Accent Line */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -564,8 +660,13 @@ export default function AboutPage() {
                 const Icon = val.icon;
                 const numberStr = `0${idx + 1}`;
                 return (
-                  <div
+                  <motion.div
                     key={idx}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.08 }}
+                    whileHover={{ y: -6 }}
                     className="p-7 rounded-3xl bg-[#111113] border border-zinc-800 hover:border-[#E5A919] transition-all relative overflow-hidden group flex flex-col justify-between shadow-xl"
                   >
                     {/* Top Glow Accent Strip */}
@@ -598,7 +699,7 @@ export default function AboutPage() {
                       <Check className="w-3.5 h-3.5" />
                       <span>Foundational Value</span>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
@@ -614,7 +715,13 @@ export default function AboutPage() {
           <div className="absolute top-1/2 right-1/4 w-[600px] h-[600px] bg-[#E5A919]/10 rounded-full blur-[180px] pointer-events-none" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-3xl mx-auto mb-14">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-3xl mx-auto mb-14"
+            >
               <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
                 THE BROTHER&apos;S FITNESS EDGE
               </span>
@@ -624,7 +731,7 @@ export default function AboutPage() {
               <p className="text-gray-400 text-sm sm:text-base">
                 Explore our distinct advantages structured for maximum member safety, progression, and satisfaction.
               </p>
-            </div>
+            </motion.div>
 
             {/* 3-Column Split: 3 Left Feature Bars | Center Tall Visual | 3 Right Feature Bars */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
@@ -634,8 +741,13 @@ export default function AboutPage() {
                 {whyChooseUs.slice(0, 3).map((item, idx) => {
                   const Icon = item.icon;
                   return (
-                    <div
+                    <motion.div
                       key={idx}
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: idx * 0.1 }}
+                      whileHover={{ x: 4 }}
                       className="p-5 rounded-2xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all group flex items-start gap-3.5 shadow-lg"
                     >
                       <div className="w-10 h-10 rounded-xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 group-hover:scale-110 transition-transform">
@@ -649,13 +761,19 @@ export default function AboutPage() {
                           {item.desc}
                         </p>
                       </div>
-                    </div>
+                    </motion.div>
                   );
                 })}
               </div>
 
               {/* Center Column (4 cols: Tall Gym Visual Showcase Card) */}
-              <div className="lg:col-span-4 relative flex items-center justify-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="lg:col-span-4 relative flex items-center justify-center"
+              >
                 <div className="relative w-full h-[430px] rounded-3xl overflow-hidden border-2 border-[#E5A919] shadow-2xl bg-black group">
                   <Image
                     src="/img/5.jpeg"
@@ -684,15 +802,20 @@ export default function AboutPage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Right Column (4 cols: 3 feature bars) */}
               <div className="lg:col-span-4 space-y-4">
                 {whyChooseUs.slice(3, 6).map((item, idx) => {
                   const Icon = item.icon;
                   return (
-                    <div
+                    <motion.div
                       key={idx}
+                      initial={{ opacity: 0, x: 30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: idx * 0.1 }}
+                      whileHover={{ x: -4 }}
                       className="p-5 rounded-2xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all group flex items-start gap-3.5 shadow-lg"
                     >
                       <div className="w-10 h-10 rounded-xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 group-hover:scale-110 transition-transform">
@@ -706,7 +829,7 @@ export default function AboutPage() {
                           {item.desc}
                         </p>
                       </div>
-                    </div>
+                    </motion.div>
                   );
                 })}
               </div>
@@ -721,7 +844,13 @@ export default function AboutPage() {
         ======================================================== */}
         <section className="py-20 bg-[#070707] relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-3xl mx-auto mb-14">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-3xl mx-auto mb-14"
+            >
               <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
                 TRAINING METHODOLOGY
               </span>
@@ -731,12 +860,17 @@ export default function AboutPage() {
               <p className="text-gray-400 text-sm sm:text-base">
                 A scientific, step-by-step framework that turns your fitness ambition into guaranteed, measurable reality.
               </p>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
               {fitnessApproach.map((item, idx) => (
-                <div
+                <motion.div
                   key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={{ y: -6 }}
                   className="p-6 rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all relative flex flex-col justify-between group shadow-lg"
                 >
                   <div>
@@ -754,7 +888,7 @@ export default function AboutPage() {
                     <Check className="w-3 h-3" />
                     <span>Step {idx + 1}</span>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -766,7 +900,13 @@ export default function AboutPage() {
         ======================================================== */}
         <section className="py-20 bg-[#0c0c0e] relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-3xl mx-auto mb-14">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-3xl mx-auto mb-14"
+            >
               <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
                 EXPERT COACHES
               </span>
@@ -776,12 +916,17 @@ export default function AboutPage() {
               <p className="text-gray-400 text-sm sm:text-base">
                 Experienced, certified master trainers dedicated to your daily posture, safety, and progressive overload.
               </p>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {trainers.map((coach, idx) => (
-                <div
+                <motion.div
                   key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={{ y: -6 }}
                   className="rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all overflow-hidden flex flex-col justify-between group shadow-xl"
                 >
                   <div className="relative h-60 w-full overflow-hidden bg-zinc-900">
@@ -819,7 +964,7 @@ export default function AboutPage() {
                       Book 1-on-1 Session
                     </button>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -831,7 +976,13 @@ export default function AboutPage() {
         ======================================================== */}
         <section className="py-20 bg-[#070707] relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-3xl mx-auto mb-14">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-3xl mx-auto mb-14"
+            >
               <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
                 WORLD-CLASS GYM FLOOR
               </span>
@@ -841,14 +992,19 @@ export default function AboutPage() {
               <p className="text-gray-400 text-sm sm:text-base">
                 Spacious, air-conditioned workout zones and hygienic amenities engineered for focused, uninterrupted training.
               </p>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {facilities.map((fac, idx) => {
                 const Icon = fac.icon;
                 return (
-                  <div
+                  <motion.div
                     key={idx}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.08 }}
+                    whileHover={{ y: -6 }}
                     className="rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all overflow-hidden flex flex-col justify-between group shadow-lg"
                   >
                     <div className="relative h-48 w-full overflow-hidden bg-zinc-900">
@@ -874,11 +1030,18 @@ export default function AboutPage() {
                         {fac.desc}
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
 
-              <div className="p-6 rounded-3xl bg-gradient-to-br from-[#1c1917] to-black border-2 border-[#E5A919] flex flex-col justify-between shadow-xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.48 }}
+                whileHover={{ y: -6 }}
+                className="p-6 rounded-3xl bg-gradient-to-br from-[#1c1917] to-black border-2 border-[#E5A919] flex flex-col justify-between shadow-xl"
+              >
                 <div>
                   <div className="w-12 h-12 rounded-2xl bg-[#E5A919] text-black flex items-center justify-center mb-4">
                     <Sparkles className="w-6 h-6" />
@@ -897,7 +1060,7 @@ export default function AboutPage() {
                 >
                   View Branch Locations
                 </Link>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -909,7 +1072,12 @@ export default function AboutPage() {
         <section className="py-16 bg-gradient-to-r from-[#1c1917] via-black to-[#1c1917] border-y border-[#E5A919]/30 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
                 <span className="text-4xl sm:text-5xl md:text-6xl font-medium text-[#E5A919] block mb-2">
                   10+
                 </span>
@@ -917,9 +1085,14 @@ export default function AboutPage() {
                   Years of Excellence
                 </span>
                 <span className="text-[11px] text-gray-400">Serving fitness seekers since 2014</span>
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
                 <span className="text-4xl sm:text-5xl md:text-6xl font-medium text-[#E5A919] block mb-2">
                   1,000+
                 </span>
@@ -927,9 +1100,14 @@ export default function AboutPage() {
                   Active Members
                 </span>
                 <span className="text-[11px] text-gray-400">Across 2 premier branches</span>
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
                 <span className="text-4xl sm:text-5xl md:text-6xl font-medium text-[#E5A919] block mb-2">
                   20+
                 </span>
@@ -937,9 +1115,14 @@ export default function AboutPage() {
                   Certified Trainers
                 </span>
                 <span className="text-[11px] text-gray-400">1-on-1 Dedicated Coaching</span>
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
                 <span className="text-4xl sm:text-5xl md:text-6xl font-medium text-[#E5A919] block mb-2">
                   5,000+
                 </span>
@@ -947,7 +1130,7 @@ export default function AboutPage() {
                   Transformations
                 </span>
                 <span className="text-[11px] text-gray-400">100% Results Guaranteed</span>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -958,7 +1141,13 @@ export default function AboutPage() {
         ======================================================== */}
         <section className="py-20 bg-[#0c0c0e] relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-3xl mx-auto mb-14">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-3xl mx-auto mb-14"
+            >
               <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
                 PROVEN RESULTS
               </span>
@@ -968,12 +1157,17 @@ export default function AboutPage() {
               <p className="text-gray-400 text-sm sm:text-base">
                 Real before-and-after success stories achieved through our universal 1-on-1 personal coaching model.
               </p>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {transformations.map((item, idx) => (
-                <div
+                <motion.div
                   key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={{ y: -6 }}
                   className="rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all overflow-hidden flex flex-col justify-between group shadow-xl"
                 >
                   <div className="relative h-64 w-full overflow-hidden bg-zinc-900">
@@ -997,7 +1191,7 @@ export default function AboutPage() {
                       {item.desc}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -1011,7 +1205,13 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
-              <div className="lg:col-span-6 space-y-6">
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.7 }}
+                className="lg:col-span-6 space-y-6"
+              >
                 <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block">
                   COMMUNITY & CULTURE
                 </span>
@@ -1037,9 +1237,15 @@ export default function AboutPage() {
                     <span className="text-xs sm:text-sm text-gray-300">Monthly milestone recognition and athlete awards</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="lg:col-span-6 grid grid-cols-2 gap-4">
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.7 }}
+                className="lg:col-span-6 grid grid-cols-2 gap-4"
+              >
                 <div className="relative h-56 rounded-2xl overflow-hidden border border-zinc-800 group">
                   <Image src="/img/8.jpeg" alt="Community workout" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
@@ -1052,7 +1258,7 @@ export default function AboutPage() {
                 <div className="relative h-56 rounded-2xl overflow-hidden border border-zinc-800 group mt-6">
                   <Image src="/img/6.jpeg" alt="Functional training" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
-              </div>
+              </motion.div>
 
             </div>
           </div>
@@ -1064,7 +1270,13 @@ export default function AboutPage() {
         ======================================================== */}
         <section className="py-20 bg-[#0c0c0e] relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-3xl mx-auto mb-14">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-3xl mx-auto mb-14"
+            >
               <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
                 WHAT MEMBERS SAY
               </span>
@@ -1074,10 +1286,17 @@ export default function AboutPage() {
               <p className="text-gray-400 text-sm sm:text-base">
                 Read authentic reviews from members who transformed their health and physique at Brother&apos;s Fitness.
               </p>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-7 rounded-3xl bg-[#121214] border border-zinc-800 space-y-4 shadow-lg flex flex-col justify-between">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                whileHover={{ y: -6 }}
+                className="p-7 rounded-3xl bg-[#121214] border border-zinc-800 space-y-4 shadow-lg flex flex-col justify-between"
+              >
                 <div>
                   <div className="flex items-center gap-1 text-[#E5A919] mb-3">
                     {[...Array(5)].map((_, i) => (
@@ -1097,9 +1316,16 @@ export default function AboutPage() {
                     <span className="text-[11px] text-amber-300">Lost 18kg • Kunchanapalli Branch</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="p-7 rounded-3xl bg-[#121214] border border-zinc-800 space-y-4 shadow-lg flex flex-col justify-between">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                whileHover={{ y: -6 }}
+                className="p-7 rounded-3xl bg-[#121214] border border-zinc-800 space-y-4 shadow-lg flex flex-col justify-between"
+              >
                 <div>
                   <div className="flex items-center gap-1 text-[#E5A919] mb-3">
                     {[...Array(5)].map((_, i) => (
@@ -1119,9 +1345,16 @@ export default function AboutPage() {
                     <span className="text-[11px] text-amber-300">Lost 14kg • KL University Rd Branch</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="p-7 rounded-3xl bg-[#121214] border border-zinc-800 space-y-4 shadow-lg flex flex-col justify-between">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                whileHover={{ y: -6 }}
+                className="p-7 rounded-3xl bg-[#121214] border border-zinc-800 space-y-4 shadow-lg flex flex-col justify-between"
+              >
                 <div>
                   <div className="flex items-center gap-1 text-[#E5A919] mb-3">
                     {[...Array(5)].map((_, i) => (
@@ -1141,7 +1374,7 @@ export default function AboutPage() {
                     <span className="text-[11px] text-amber-300">Gained 12kg Lean Muscle</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -1152,7 +1385,13 @@ export default function AboutPage() {
         ======================================================== */}
         <section className="py-20 bg-[#070707] relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-3xl mx-auto mb-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-3xl mx-auto mb-10"
+            >
               <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
                 INSIDE BROTHER&apos;S FITNESS
               </span>
@@ -1186,13 +1425,18 @@ export default function AboutPage() {
                   </button>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Gallery Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {filteredGallery.map((item, idx) => (
-                <div
+                <motion.div
                   key={idx}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: (idx % 4) * 0.08 }}
+                  whileHover={{ scale: 1.03 }}
                   className="relative h-64 rounded-2xl overflow-hidden border border-zinc-800 hover:border-[#E5A919] transition-all group bg-black"
                 >
                   <Image
@@ -1207,7 +1451,7 @@ export default function AboutPage() {
                       {item.title}
                     </span>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -1219,7 +1463,13 @@ export default function AboutPage() {
         ======================================================== */}
         <section className="py-20 bg-[#0c0c0e] relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="relative rounded-3xl overflow-hidden border-2 border-[#E5A919]/60 bg-gradient-to-r from-black via-[#14120f] to-black shadow-[0_0_60px_rgba(229,169,25,0.3)] p-8 sm:p-12 md:p-16 text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92, y: 30 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8 }}
+              className="relative rounded-3xl overflow-hidden border-2 border-[#E5A919]/60 bg-gradient-to-r from-black via-[#14120f] to-black shadow-[0_0_60px_rgba(229,169,25,0.3)] p-8 sm:p-12 md:p-16 text-center"
+            >
               
               <div className="max-w-3xl mx-auto space-y-6">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#E5A919]/20 border border-[#E5A919] text-[#E5A919] text-xs font-medium uppercase tracking-wider">
@@ -1268,7 +1518,7 @@ export default function AboutPage() {
                 </div>
               </div>
 
-            </div>
+            </motion.div>
           </div>
         </section>
 
