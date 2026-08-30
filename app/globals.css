@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #070707;
+  --foreground: #f3f4f6;
+  --gold-primary: #e5a919;
+  --gold-light: #fcd34d;
+  --gold-dark: #b47f07;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sora), system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-sora), system-ui, -apple-system, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  font-family: var(--font-sora), sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #070707;
+  color: #f3f4f6;
+  font-family: var(--font-sora), sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
 }
+
+/* Enforce maximum font-weight of 500 across all elements */
+h1, h2, h3, h4, h5, h6,
+strong, b,
+.font-bold, .font-semibold, .font-extrabold, .font-black, .font-medium {
+  font-weight: 500 !important;
+}
+
+/* Gold glow and glass effects */
+.gold-glow {
+  box-shadow: 0 0 25px rgba(229, 169, 25, 0.35);
+}
+
+.gold-glow-lg {
+  box-shadow: 0 0 45px rgba(229, 169, 25, 0.5);
+}
+
+.gold-text-glow {
+  text-shadow: 0 0 20px rgba(229, 169, 25, 0.4);
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(to bottom, #fcd34d, #b47f07, #543900) 1;
+}
+
+.gold-badge-shimmer {
+  background: linear-gradient(135deg, #ffd700 0%, #ffae00 50%, #b37400 100%);
+}
+
+.dark-card {
+  background: linear-gradient(180deg, rgba(24, 24, 27, 0.85) 0%, rgba(12, 12, 14, 0.95) 100%);
+  border: 1px solid rgba(229, 169, 25, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+.dark-card:hover {
+  border-color: rgba(229, 169, 25, 0.6);
+  box-shadow: 0 10px 30px -10px rgba(229, 169, 25, 0.25);
+}
+
+/* Custom gold scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e5a919;
+}
+
+
