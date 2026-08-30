@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TrialBookingModal from "@/components/TrialBookingModal";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import CustomDropdown from "@/components/CustomDropdown";
 import {
   MapPin,
   Phone,
@@ -471,7 +472,7 @@ export default function ContactPage() {
                       {/* Email & Preferred Branch */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
+                          <label className="block text-xs font-medium text-gray-300 uppercase mb-1.5 tracking-wider">
                             Email Address (Optional)
                           </label>
                           <input
@@ -479,58 +480,47 @@ export default function ContactPage() {
                             placeholder="e.g. rahul@example.com"
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors placeholder:text-zinc-600"
+                            className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors placeholder:text-zinc-600"
                           />
                         </div>
 
-                        <div>
-                          <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
-                            Select Branch *
-                          </label>
-                          <select
-                            value={formData.branch}
-                            onChange={(e) => setFormData({ ...formData, branch: e.target.value })}
-                            className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors"
-                          >
-                            <option>1st Branch (Kunchanapalli - 522501)</option>
-                            <option>2nd Branch (KL University Rd - 522502)</option>
-                          </select>
-                        </div>
+                        <CustomDropdown
+                          label="Select Branch"
+                          required
+                          options={[
+                            { value: "1st Branch (Kunchanapalli - 522501)", label: "1st Branch (Kunchanapalli - 522501)", sublabel: "Bank of Baroda Building, Near Aravinda High School" },
+                            { value: "2nd Branch (KL University Rd - 522502)", label: "2nd Branch (KL University Rd - 522502)", sublabel: "KL University Main Road, Vaddeswaram" },
+                          ]}
+                          value={formData.branch}
+                          onChange={(val) => setFormData({ ...formData, branch: val })}
+                        />
                       </div>
 
                       {/* Goal & Preferred Time Slot */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
-                            Primary Fitness Goal
-                          </label>
-                          <select
-                            value={formData.goal}
-                            onChange={(e) => setFormData({ ...formData, goal: e.target.value })}
-                            className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors"
-                          >
-                            <option>Fat Loss & Body Toning</option>
-                            <option>Muscle Building & Hypertrophy</option>
-                            <option>1-on-1 Dedicated Personal Coaching</option>
-                            <option>Strength & Functional Training</option>
-                            <option>General Stamina & Health</option>
-                          </select>
-                        </div>
+                        <CustomDropdown
+                          label="Primary Fitness Goal"
+                          options={[
+                            "Fat Loss & Body Toning",
+                            "Muscle Building & Hypertrophy",
+                            "1-on-1 Dedicated Personal Coaching",
+                            "Strength & Functional Training",
+                            "General Stamina & Health",
+                          ]}
+                          value={formData.goal}
+                          onChange={(val) => setFormData({ ...formData, goal: val })}
+                        />
 
-                        <div>
-                          <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
-                            Preferred Time
-                          </label>
-                          <select
-                            value={formData.timeSlot}
-                            onChange={(e) => setFormData({ ...formData, timeSlot: e.target.value })}
-                            className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors"
-                          >
-                            <option>Morning (05:00 AM - 09:00 AM)</option>
-                            <option>Mid-Day (10:00 AM - 04:00 PM)</option>
-                            <option>Evening (05:00 PM - 10:00 PM)</option>
-                          </select>
-                        </div>
+                        <CustomDropdown
+                          label="Preferred Time"
+                          options={[
+                            "Morning (05:00 AM - 09:00 AM)",
+                            "Mid-Day (10:00 AM - 04:00 PM)",
+                            "Evening (05:00 PM - 10:00 PM)",
+                          ]}
+                          value={formData.timeSlot}
+                          onChange={(val) => setFormData({ ...formData, timeSlot: val })}
+                        />
                       </div>
 
                       {/* Message */}

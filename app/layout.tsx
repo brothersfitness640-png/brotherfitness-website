@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import "./globals.css";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -36,9 +37,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sora.variable} dark scroll-smooth`}
+      className={`${sora.variable} dark`}
     >
       <body className="min-h-screen bg-[#070707] text-[#F3F4F6] font-sans antialiased selection:bg-[#E5A919] selection:text-black font-normal">
+        <ScrollToTop />
         {children}
       </body>
     </html>
