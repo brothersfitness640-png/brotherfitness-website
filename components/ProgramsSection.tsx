@@ -165,6 +165,8 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
                     alt={program.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    loading="lazy"
+                    decoding="async"
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#121214] via-transparent to-transparent" />
@@ -234,6 +236,9 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
                 src={selectedProgram.image}
                 alt={selectedProgram.title}
                 fill
+                sizes="(max-width: 640px) 100vw, 500px"
+                loading="lazy"
+                decoding="async"
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />

@@ -30,6 +30,8 @@ export default function CtaBanner({ onOpenTrialModal }: CtaBannerProps) {
               alt="Start Your Fitness Journey"
               fill
               sizes="(max-width: 1280px) 100vw, 1200px"
+              loading="lazy"
+              decoding="async"
               className="object-cover opacity-30"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/85" />

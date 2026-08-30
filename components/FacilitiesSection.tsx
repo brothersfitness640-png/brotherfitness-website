@@ -116,6 +116,8 @@ export default function FacilitiesSection({ onOpenTrialModal }: FacilitiesSectio
                     alt={fac.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    loading="lazy"
+                    decoding="async"
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#121214] via-black/40 to-transparent" />

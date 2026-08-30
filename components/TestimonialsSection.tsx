@@ -108,6 +108,9 @@ export default function TestimonialsSection({ onOpenTrialModal }: TestimonialsSe
                     src={rev.photo}
                     alt={rev.name}
                     fill
+                    sizes="48px"
+                    loading="lazy"
+                    decoding="async"
                     className="object-cover object-top"
                   />
                 </div>
