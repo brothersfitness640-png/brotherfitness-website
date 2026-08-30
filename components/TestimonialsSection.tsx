@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { Star, Quote, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface TestimonialsSectionProps {
   onOpenTrialModal: (plan?: string) => void;
@@ -56,7 +57,13 @@ export default function TestimonialsSection({ onOpenTrialModal }: TestimonialsSe
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
             TESTIMONIALS
           </span>
@@ -66,13 +73,18 @@ export default function TestimonialsSection({ onOpenTrialModal }: TestimonialsSe
           <p className="text-gray-400 text-sm sm:text-base">
             Read verified feedback from our members who achieved life-changing body transformations with our 1-on-1 personal coaching.
           </p>
-        </div>
+        </motion.div>
 
         {/* Reviews Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {reviews.map((rev) => (
-            <div
+          {reviews.map((rev, idx) => (
+            <motion.div
               key={rev.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              whileHover={{ y: -6 }}
               className="p-6 rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-2xl hover:shadow-[#E5A919]/20"
             >
               <div>
@@ -108,17 +120,24 @@ export default function TestimonialsSection({ onOpenTrialModal }: TestimonialsSe
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Bottom Trust Badge */}
-        <div className="mt-12 p-4 rounded-2xl bg-gradient-to-r from-[#1c1917] to-[#0c0c0e] border border-[#E5A919]/40 flex flex-wrap items-center justify-center gap-3 text-center text-xs text-gray-300">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-12 p-4 rounded-2xl bg-gradient-to-r from-[#1c1917] to-[#0c0c0e] border border-[#E5A919]/40 flex flex-wrap items-center justify-center gap-3 text-center text-xs text-gray-300"
+        >
           <ShieldCheck className="w-4 h-4 text-[#E5A919]" />
           <span>Over <strong>500+ members transformed</strong> backed by our <strong>100% Money-Back Result Guarantee</strong>.</span>
-        </div>
+        </motion.div>
 
       </div>
     </section>
   );
 }
+

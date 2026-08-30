@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { ArrowRight, ShieldCheck, Sparkles, Dumbbell } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface CtaBannerProps {
   onOpenTrialModal: (plan?: string) => void;
@@ -14,7 +15,13 @@ export default function CtaBanner({ onOpenTrialModal }: CtaBannerProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main CTA Card */}
-        <div className="relative rounded-3xl overflow-hidden border-2 border-[#E5A919]/60 bg-gradient-to-r from-black via-[#14120f] to-black shadow-[0_0_60px_rgba(229,169,25,0.3)]">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92, y: 40 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative rounded-3xl overflow-hidden border-2 border-[#E5A919]/60 bg-gradient-to-r from-black via-[#14120f] to-black shadow-[0_0_60px_rgba(229,169,25,0.3)]"
+        >
           
           {/* Background Image Layer */}
           <div className="absolute inset-0 z-0">
@@ -31,7 +38,13 @@ export default function CtaBanner({ onOpenTrialModal }: CtaBannerProps) {
           {/* Foreground Content */}
           <div className="relative z-10 p-8 sm:p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
             
-            <div className="max-w-2xl space-y-4">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="max-w-2xl space-y-4"
+            >
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E5A919]/20 border border-[#E5A919] text-[#E5A919] text-xs font-medium uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Limited Free 1-on-1 Trial Passes Available</span>
@@ -53,10 +66,16 @@ export default function CtaBanner({ onOpenTrialModal }: CtaBannerProps) {
                 <ShieldCheck className="w-4 h-4 text-[#E5A919]" />
                 <span>Zero Risk • Guaranteed Results or 100% Fee Refund</span>
               </div>
-            </div>
+            </motion.div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, x: 30 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="flex flex-col sm:flex-row items-center gap-3 shrink-0"
+            >
               {/* Exact Requested Primary CTA */}
               <button
                 onClick={() => onOpenTrialModal("CTA Start Journey")}
@@ -73,13 +92,14 @@ export default function CtaBanner({ onOpenTrialModal }: CtaBannerProps) {
               >
                 Book Free Trial
               </button>
-            </div>
+            </motion.div>
 
           </div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>
   );
 }
+

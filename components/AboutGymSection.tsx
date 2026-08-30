@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Target, Compass, Sparkles, ArrowRight, ShieldCheck, Dumbbell, Award } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface AboutGymSectionProps {
   onOpenTrialModal: (plan?: string) => void;
@@ -19,7 +20,13 @@ export default function AboutGymSection({ onOpenTrialModal }: AboutGymSectionPro
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column: Image of the Gym */}
-          <div className="lg:col-span-6 relative">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-6 relative"
+          >
             <div className="relative rounded-3xl overflow-hidden border-2 border-[#E5A919]/50 shadow-2xl group bg-black">
               <div className="relative h-[400px] sm:h-[480px] w-full">
                 <Image
@@ -47,10 +54,16 @@ export default function AboutGymSection({ onOpenTrialModal }: AboutGymSectionPro
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Short Introduction, Philosophy, Mission & Vision */}
-          <div className="lg:col-span-6 space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-6 space-y-6"
+          >
             <div>
               <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
                 ABOUT THE GYM
@@ -64,7 +77,13 @@ export default function AboutGymSection({ onOpenTrialModal }: AboutGymSectionPro
             </div>
 
             {/* Gym Philosophy */}
-            <div className="p-4 rounded-2xl bg-[#141416] border border-zinc-800 space-y-1.5">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="p-4 rounded-2xl bg-[#141416] border border-zinc-800 space-y-1.5"
+            >
               <div className="flex items-center gap-2 text-xs font-medium text-[#E5A919] uppercase tracking-wider">
                 <Compass className="w-4 h-4" />
                 <span>Our Philosophy</span>
@@ -72,10 +91,16 @@ export default function AboutGymSection({ onOpenTrialModal }: AboutGymSectionPro
               <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
                 Consistency, science-backed progressive overload, and personalized nutrition create guaranteed, lasting transformations — not extreme starvation or solitary workouts.
               </p>
-            </div>
+            </motion.div>
 
             {/* Mission / Vision */}
-            <div className="p-4 rounded-2xl bg-[#141416] border border-zinc-800 space-y-1.5">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="p-4 rounded-2xl bg-[#141416] border border-zinc-800 space-y-1.5"
+            >
               <div className="flex items-center gap-2 text-xs font-medium text-[#E5A919] uppercase tracking-wider">
                 <Target className="w-4 h-4" />
                 <span>Our Mission & Vision</span>
@@ -83,10 +108,16 @@ export default function AboutGymSection({ onOpenTrialModal }: AboutGymSectionPro
               <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
                 To empower members of all fitness levels with expert guidance, world-class equipment, and a 100% money-back result commitment.
               </p>
-            </div>
+            </motion.div>
 
             {/* Actions: Learn More & Free Trial */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex flex-wrap items-center gap-4 pt-2"
+            >
               <Link
                 href="/about"
                 className="px-7 py-3 rounded-full bg-[#E5A919] hover:bg-yellow-400 text-black font-medium text-xs uppercase tracking-wider transition-all shadow-lg shadow-[#E5A919]/25 flex items-center gap-2"
@@ -101,9 +132,9 @@ export default function AboutGymSection({ onOpenTrialModal }: AboutGymSectionPro
               >
                 Book a Gym Visit
               </button>
-            </div>
+            </motion.div>
 
-          </div>
+          </motion.div>
 
         </div>
       </div>

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Dumbbell, Flame, Zap, UserCheck, Activity, Heart, Users, Check, X, ShieldCheck, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface ProgramsSectionProps {
   onOpenTrialModal: (plan?: string) => void;
@@ -57,7 +58,7 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
     {
       id: "personal-training",
       title: "Personal Training",
-      category: "",
+      category: "1-on-1 Elite Coaching",
       description: "Our signature offering: dedicated 1-on-1 coaching for every candidate with customized workouts.",
       image: "/img/5.jpeg",
       icon: UserCheck,
@@ -120,7 +121,13 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-14"
+        >
           <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
             PROGRAMS & TRAINING
           </span>
@@ -130,7 +137,7 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
           <p className="text-gray-400 text-sm sm:text-base">
             Explore our specialized fitness and transformation programs. Every program includes personalized coaching and strict nutrition guidance.
           </p>
-        </div>
+        </motion.div>
 
         {/* 7 Programs Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -138,8 +145,13 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
             const Icon = program.icon;
             const isFeatured = program.id === "personal-training";
             return (
-              <div
+              <motion.div
                 key={program.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                whileHover={{ y: -6 }}
                 className={`group rounded-3xl bg-[#121214] border transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[#E5A919]/20 ${
                   isFeatured
                     ? "border-2 border-[#E5A919] bg-gradient-to-b from-[#1c1917] to-[#121214] sm:col-span-2 lg:col-span-1"
@@ -199,7 +211,7 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
                     </button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { Dumbbell, Activity, Heart, ShieldCheck, ShowerHead, Lock, Car, Sparkles, CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface FacilitiesSectionProps {
   onOpenTrialModal: (plan?: string) => void;
@@ -76,7 +77,13 @@ export default function FacilitiesSection({ onOpenTrialModal }: FacilitiesSectio
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-14"
+        >
           <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
             FACILITIES & EQUIPMENT
           </span>
@@ -86,15 +93,20 @@ export default function FacilitiesSection({ onOpenTrialModal }: FacilitiesSectio
           <p className="text-gray-400 text-sm sm:text-base">
             Equipped with state-of-the-art strength machinery, hygienic private amenities, and dedicated workout zones engineered for peak performance.
           </p>
-        </div>
+        </motion.div>
 
         {/* Facilities Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {facilities.map((fac) => {
+          {facilities.map((fac, idx) => {
             const Icon = fac.icon;
             return (
-              <div
+              <motion.div
                 key={fac.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                whileHover={{ y: -6 }}
                 className="group rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[#E5A919]/20"
               >
                 {/* Image */}
@@ -131,12 +143,19 @@ export default function FacilitiesSection({ onOpenTrialModal }: FacilitiesSectio
                     <span>Available to all members</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
 
           {/* Quick Tour CTA Card */}
-          <div className="p-6 rounded-3xl bg-gradient-to-br from-[#1c1917] to-black border-2 border-[#E5A919] flex flex-col justify-between shadow-xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.56 }}
+            whileHover={{ y: -6 }}
+            className="p-6 rounded-3xl bg-gradient-to-br from-[#1c1917] to-black border-2 border-[#E5A919] flex flex-col justify-between shadow-xl"
+          >
             <div>
               <div className="w-12 h-12 rounded-2xl bg-[#E5A919] text-black flex items-center justify-center mb-4">
                 <Sparkles className="w-6 h-6" />
@@ -155,10 +174,11 @@ export default function FacilitiesSection({ onOpenTrialModal }: FacilitiesSectio
             >
               Book Free Gym Tour
             </button>
-          </div>
+          </motion.div>
         </div>
 
       </div>
     </section>
   );
 }
+

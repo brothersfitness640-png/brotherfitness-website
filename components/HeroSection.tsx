@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { Users, Award, FileText, Apple, ArrowRight, ShieldCheck, Dumbbell, Sparkles, UserCheck } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface HeroSectionProps {
   onOpenTrialModal: (plan?: string) => void;
@@ -35,37 +36,67 @@ export default function HeroSection({ onOpenTrialModal }: HeroSectionProps) {
   return (
     <section className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 overflow-hidden">
       {/* Background Gradients & Ambient Lights */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#E5A919]/10 rounded-full blur-[140px] pointer-events-none" />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#E5A919]/10 rounded-full blur-[140px] pointer-events-none"
+      />
       <div className="absolute top-12 left-10 w-96 h-96 bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           
           {/* Left Hero Content */}
-          <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-start text-left space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-6 xl:col-span-6 flex flex-col items-start text-left space-y-6"
+          >
             
             {/* Top Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#E5A919]/20 to-black border border-[#E5A919]/40 text-[#E5A919] text-xs md:text-sm font-medium tracking-wide uppercase shadow-sm">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#E5A919]/20 to-black border border-[#E5A919]/40 text-[#E5A919] text-xs md:text-sm font-medium tracking-wide uppercase shadow-sm"
+            >
               <Sparkles className="w-4 h-4 text-amber-400 animate-spin" style={{ animationDuration: "8s" }} />
               <span>Personal Training For Every Member</span>
-            </div>
+            </motion.div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-medium uppercase tracking-tight text-white leading-[1.05]">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-medium uppercase tracking-tight text-white leading-[1.05]"
+            >
               STRONGER <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FDE047] via-[#E5A919] to-[#D97706] drop-shadow-[0_0_25px_rgba(229,169,25,0.4)]">
                 EVERYDAY
               </span> <br />
               BETTER YOU
-            </h1>
+            </motion.h1>
 
             {/* Subtitle */}
-            <p className="text-gray-300 text-sm sm:text-base md:text-lg font-normal max-w-xl leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-gray-300 text-sm sm:text-base md:text-lg font-normal max-w-xl leading-relaxed"
+            >
               Transform your body, elevate your mind and become the strongest version of yourself with customized 1-on-1 coaching.
-            </p>
+            </motion.p>
 
             {/* Guarantee Highlight Callout */}
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-[#1c1917]/90 to-[#0c0a09]/90 border border-[#E5A919]/40 flex items-center gap-3.5 max-w-xl shadow-lg shadow-black/60">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-[#1c1917]/90 to-[#0c0a09]/90 border border-[#E5A919]/40 flex items-center gap-3.5 max-w-xl shadow-lg shadow-black/60"
+            >
               <div className="w-10 h-10 rounded-xl bg-[#E5A919]/20 border border-[#E5A919] flex items-center justify-center shrink-0 text-[#E5A919]">
                 <ShieldCheck className="w-6 h-6" />
               </div>
@@ -77,10 +108,15 @@ export default function HeroSection({ onOpenTrialModal }: HeroSectionProps) {
                   Follow our strict diet & daily workout plan — if no visible improvement occurs, <strong className="text-white">your full fee is refunded.</strong>
                 </span>
               </div>
-            </div>
+            </motion.div>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-wrap items-center gap-4 pt-2"
+            >
               <button
                 onClick={() => onOpenTrialModal("Personal Training Membership")}
                 className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#E5A919] via-[#F59E0B] to-[#D97706] text-black font-medium text-sm uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-xl shadow-[#E5A919]/30 flex items-center gap-2 cursor-pointer"
@@ -95,15 +131,22 @@ export default function HeroSection({ onOpenTrialModal }: HeroSectionProps) {
               >
                 Book a Free Trial
               </button>
-            </div>
+            </motion.div>
 
             {/* 4 Feature Badges from Reference Image */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 w-full max-w-2xl border-t border-zinc-800/80">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 w-full max-w-2xl border-t border-zinc-800/80"
+            >
               {highlights.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <div
+                  <motion.div
                     key={idx}
+                    whileHover={{ scale: 1.05, y: -4 }}
+                    transition={{ duration: 0.2 }}
                     className="flex flex-col items-start p-2.5 rounded-xl bg-zinc-950/60 border border-zinc-900 hover:border-[#E5A919]/40 transition-colors"
                   >
                     <div className="w-8 h-8 rounded-lg bg-[#E5A919]/10 flex items-center justify-center text-[#E5A919] mb-2">
@@ -115,14 +158,19 @@ export default function HeroSection({ onOpenTrialModal }: HeroSectionProps) {
                     <span className="text-[10px] text-gray-400 leading-tight">
                       {item.desc}
                     </span>
-                  </div>
+                  </motion.div>
                 );
               })}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Hero Visual: Large Prominent Full Artwork Image */}
-          <div className="lg:col-span-6 xl:col-span-6 flex items-center justify-center lg:justify-end relative w-full mt-6 lg:mt-0">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85, x: 50 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+            className="lg:col-span-6 xl:col-span-6 flex items-center justify-center lg:justify-end relative w-full mt-6 lg:mt-0"
+          >
             {/* Ambient Background Halo Glow */}
             <div className="absolute w-[450px] h-[450px] sm:w-[600px] sm:h-[600px] lg:w-[700px] lg:h-[700px] rounded-full bg-[#E5A919]/20 blur-[130px] pointer-events-none" />
 
@@ -136,7 +184,7 @@ export default function HeroSection({ onOpenTrialModal }: HeroSectionProps) {
                 priority
               />
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

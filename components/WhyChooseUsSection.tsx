@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { Dumbbell, UserCheck, HeartHandshake, Sparkles, ShieldCheck, CheckCircle2, ArrowRight, Shield } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface WhyChooseUsSectionProps {
   onOpenTrialModal: (plan?: string) => void;
@@ -45,7 +46,13 @@ export default function WhyChooseUsSection({ onOpenTrialModal }: WhyChooseUsSect
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
             WHY CHOOSE US
           </span>
@@ -55,15 +62,20 @@ export default function WhyChooseUsSection({ onOpenTrialModal }: WhyChooseUsSect
           <p className="text-gray-400 text-sm sm:text-base">
             We don&apos;t just provide a workout space — we provide a complete transformation system with unmatched personal guidance, modern machinery, and guaranteed results.
           </p>
-        </div>
+        </motion.div>
 
         {/* 5 Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {features.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div
+              <motion.div
                 key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ y: -6 }}
                 className={`p-7 rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-2xl hover:shadow-[#E5A919]/20 ${
                   idx === 2 ? "md:col-span-2 lg:col-span-1 bg-gradient-to-b from-[#1c1917] to-[#121214] border-[#E5A919]/40" : ""
                 }`}
@@ -84,12 +96,19 @@ export default function WhyChooseUsSection({ onOpenTrialModal }: WhyChooseUsSect
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>Standard for every member</span>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
 
           {/* Quick Trial Card in Grid */}
-          <div className="p-7 rounded-3xl bg-gradient-to-br from-[#E5A919]/20 via-black to-black border-2 border-[#E5A919] flex flex-col justify-between shadow-xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            whileHover={{ y: -6 }}
+            className="p-7 rounded-3xl bg-gradient-to-br from-[#E5A919]/20 via-black to-black border-2 border-[#E5A919] flex flex-col justify-between shadow-xl"
+          >
             <div>
               <div className="w-12 h-12 rounded-2xl bg-[#E5A919] flex items-center justify-center text-black mb-5">
                 <Shield className="w-6 h-6" />
@@ -108,10 +127,11 @@ export default function WhyChooseUsSection({ onOpenTrialModal }: WhyChooseUsSect
             >
               Claim Free 1-on-1 Pass
             </button>
-          </div>
+          </motion.div>
         </div>
 
       </div>
     </section>
   );
 }
+
