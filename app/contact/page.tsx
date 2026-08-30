@@ -17,7 +17,11 @@ import {
   ChevronDown,
   Sparkles,
   Dumbbell,
+  Navigation,
   HelpCircle,
+  Calendar,
+  Building2,
+  Check,
 } from "lucide-react";
 
 export default function ContactPage() {
@@ -28,8 +32,9 @@ export default function ContactPage() {
     name: "",
     phone: "",
     email: "",
-    goal: "Fat Loss & Toning",
-    timeSlot: "Morning (06:00 AM - 10:00 AM)",
+    branch: "1st Branch (Kunchanapalli)",
+    goal: "Fat Loss & Body Toning",
+    timeSlot: "Morning (05:00 AM - 09:00 AM)",
     message: "",
   });
 
@@ -41,26 +46,51 @@ export default function ContactPage() {
     setIsSubmitted(true);
   };
 
+  const whatsappMessage = encodeURIComponent(
+    `Hi Brothers Fitness, I would like to book a Free 1-on-1 Trial Session!\n\nName: ${formData.name || "Member"}\nPhone: ${formData.phone || "Not provided"}\nBranch: ${formData.branch}\nGoal: ${formData.goal}\nPreferred Time: ${formData.timeSlot}`
+  );
+
+  const branches = [
+    {
+      id: "branch-1",
+      number: "1st Branch",
+      title: "Kunchanapalli / Tadepalli",
+      landmark: "Ground Floor, Bank of Baroda Building, Near Aravinda High School",
+      address: "Door no: 3-273/2, Ground floor, Bank of Baroda building, near Aravinda High School, Kunchanapalli village, Tadepalli (Mandal), Guntur (District)",
+      pincode: "522501",
+      mapsQuery: "https://www.google.com/maps/search/?api=1&query=Brothers+Fitness+Kunchanapalli+Bank+of+Baroda+Tadepalli",
+    },
+    {
+      id: "branch-2",
+      number: "2nd Branch",
+      title: "KL University Road / Vaddeswaram",
+      landmark: "KL University Main Road, Revenue Ward No 20",
+      address: "20-9-121/2, KL University Road, Vaddeswaram, Revenue Ward No 20, Mangalagiri Tadepalli",
+      pincode: "522502",
+      mapsQuery: "https://www.google.com/maps/search/?api=1&query=Brothers+Fitness+KL+University+Road+Vaddeswaram+Mangalagiri",
+    },
+  ];
+
   const faqs = [
     {
       q: "How does the 100% Results or Money-Back Guarantee work?",
-      a: "When you join our transformation program, our head trainer crafts a personalized progressive workout routine and a strict macro-counted nutrition chart. We document your starting metrics (body fat %, measurements, weight). If you maintain at least 90% workout attendance and adhere to the prescribed diet chart for the program duration and see no measurable physical improvement, we refund 100% of your membership fees without hassle.",
+      a: "When you join our personal training program, our coaches assign a personalized workout routine and strict macro diet chart. If you follow the prescribed plan daily and see no measurable physical improvement, your full membership fee will be refunded without deductions.",
     },
     {
       q: "Is 1-on-1 Personal Training truly provided to every member?",
-      a: "Yes! Brother's Fitness was founded specifically because most commercial gyms leave members confused and unguided. Every member is assigned a dedicated personal trainer who monitors your form on every set, prevents injury, and ensures progressive overload.",
-    },
-    {
-      q: "Do I receive a customized diet plan suited to my food preferences?",
-      a: "Absolutely. Our certified sports nutritionist analyzes your daily routine, metabolic rate, and dietary preference (Vegetarian, Non-Vegetarian, Vegan, Eggitarian, South/North Indian) to craft delicious, macro-balanced meal charts that fit your lifestyle.",
+      a: "Yes! Brother's Fitness is famous specifically for dedicated 1-on-1 personal training for each candidate. A dedicated coach is by your side on every set to correct your posture, teach progressive overload, and prevent injuries.",
     },
     {
       q: "What is included in the Free 1-on-1 Trial Session?",
-      a: "Your trial includes a full InBody composition scan (body fat %, visceral fat, muscle mass), a 1-on-1 workout session with a senior trainer, form assessment, and a 15-minute goal consultation completely free of charge.",
+      a: "Your trial includes a full body assessment, a 1-on-1 guided workout with a senior trainer, form correction, and a 15-minute customized diet consultation — 100% free with zero obligation.",
+    },
+    {
+      q: "Can I choose between the two branches?",
+      a: "Yes, you can register and train at either our 1st Branch in Kunchanapalli (Pincode: 522501) or our 2nd Branch on KL University Road, Vaddeswaram (Pincode: 522502). Both offer world-class equipment and personal coaching.",
     },
     {
       q: "What are Brother's Fitness gym timings?",
-      a: "We are open 7 days a week from 5:00 AM to 10:00 PM (Monday through Sunday), allowing you to train comfortably early in the morning or late after work.",
+      a: "We are open 7 days a week from 5:00 AM to 10:00 PM (Monday to Sunday), giving you full flexibility to train early in the morning or late evening.",
     },
   ];
 
@@ -71,180 +101,272 @@ export default function ContactPage() {
       <main className="pt-28 pb-20">
         
         {/* Page Hero Header */}
-        <section className="relative py-14 text-center overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#E5A919]/10 rounded-full blur-[140px] pointer-events-none" />
+        <section className="relative py-12 text-center overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#E5A919]/10 rounded-full blur-[150px] pointer-events-none" />
           
           <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 space-y-4">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#E5A919]/20 border border-[#E5A919] text-[#E5A919] text-xs font-black uppercase tracking-widest">
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#E5A919]/20 border border-[#E5A919] text-[#E5A919] text-xs font-medium uppercase tracking-widest">
+              <Sparkles className="w-3.5 h-3.5" />
               WE ARE HERE FOR YOUR TRANSFORMATION
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-white">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium uppercase tracking-tight text-white">
               CONTACT <span className="text-[#E5A919]">BROTHER&apos;S FITNESS</span>
             </h1>
-            <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto">
-              Book your free 1-on-1 trial session, consult with our master trainers, or ask any question about our 100% money-back result guarantee.
+            <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
+              Book your free 1-on-1 trial session, visit either of our two premier branches, or talk directly with our head coaches on WhatsApp.
             </p>
           </div>
         </section>
 
-        {/* Contact Info Cards + Interactive Form Grid */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        {/* 4 Fast Contact Bar */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             
-            {/* Left Col: Contact Information Cards */}
+            {/* 1. Primary WhatsApp (First Mobile Number) */}
+            <a
+              href="https://wa.me/919505560783?text=Hi%20Brothers%20Fitness%2C%20I%20want%20to%20know%20more%20about%20your%201-on-1%20Personal%20Training%20and%20100%25%20Result%20Guarantee!"
+              target="_blank"
+              rel="noreferrer"
+              className="p-5 rounded-2xl bg-[#121214] border border-zinc-800 hover:border-[#25D366] transition-all group flex items-center gap-4 shadow-lg hover:shadow-green-500/10"
+            >
+              <div className="w-12 h-12 rounded-xl bg-[#25D366]/20 border border-[#25D366]/40 flex items-center justify-center text-[#25D366] shrink-0 group-hover:scale-110 transition-transform">
+                <MessageCircle className="w-6 h-6" />
+              </div>
+              <div>
+                <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wider block">
+                  Direct WhatsApp
+                </span>
+                <span className="text-sm font-medium text-white group-hover:text-[#25D366] transition-colors">
+                  +91 95055 60783
+                </span>
+                <span className="text-[10px] text-green-400 block mt-0.5">● Instant Replies</span>
+              </div>
+            </a>
+
+            {/* 2. Phone Call (Both Numbers) */}
+            <div className="p-5 rounded-2xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all group flex items-center gap-4 shadow-lg">
+              <div className="w-12 h-12 rounded-xl bg-[#E5A919]/15 border border-[#E5A919]/30 flex items-center justify-center text-[#E5A919] shrink-0 group-hover:scale-110 transition-transform">
+                <Phone className="w-6 h-6" />
+              </div>
+              <div>
+                <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wider block">
+                  Call Gym Hotlines
+                </span>
+                <div className="flex flex-col text-xs font-medium text-white">
+                  <a href="tel:+919505560783" className="hover:text-[#E5A919] transition-colors">
+                    +91 95055 60783
+                  </a>
+                  <a href="tel:+918885553402" className="hover:text-[#E5A919] transition-colors">
+                    +91 88855 53402
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* 3. Official Email */}
+            <a
+              href="mailto:brothers.fitness640@gmail.com"
+              className="p-5 rounded-2xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all group flex items-center gap-4 shadow-lg"
+            >
+              <div className="w-12 h-12 rounded-xl bg-[#E5A919]/15 border border-[#E5A919]/30 flex items-center justify-center text-[#E5A919] shrink-0 group-hover:scale-110 transition-transform">
+                <Mail className="w-6 h-6" />
+              </div>
+              <div className="overflow-hidden">
+                <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wider block">
+                  Official Email
+                </span>
+                <span className="text-xs font-medium text-white group-hover:text-[#E5A919] transition-colors truncate block">
+                  brothers.fitness640@gmail.com
+                </span>
+              </div>
+            </a>
+
+            {/* 4. Operating Timings */}
+            <div className="p-5 rounded-2xl bg-[#121214] border border-zinc-800 flex items-center gap-4 shadow-lg">
+              <div className="w-12 h-12 rounded-xl bg-[#E5A919]/15 border border-[#E5A919]/30 flex items-center justify-center text-[#E5A919] shrink-0">
+                <Clock className="w-6 h-6" />
+              </div>
+              <div>
+                <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wider block">
+                  Gym Working Hours
+                </span>
+                <span className="text-xs font-medium text-white block">
+                  Mon – Sun: 5:00 AM – 10:00 PM
+                </span>
+                <span className="text-[10px] text-amber-400 block mt-0.5">Open All 7 Days</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* Branches Showcase & Inquiry Form Grid */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            
+            {/* Left Col (5 cols): 2 Branches & 100% Guarantee Box */}
             <div className="lg:col-span-5 space-y-6">
               
-              {/* Guarantee Highlight Card */}
-              <div className="p-6 rounded-3xl bg-gradient-to-br from-[#1c1917] to-[#0c0a09] border-2 border-[#E5A919]/60 shadow-xl space-y-3">
+              {/* Guarantee Highlight Box */}
+              <div className="p-6 rounded-3xl bg-gradient-to-br from-[#1c1917] to-[#0c0a09] border-2 border-[#E5A919]/70 shadow-2xl space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#E5A919] flex items-center justify-center text-black font-black">
+                  <div className="w-10 h-10 rounded-xl bg-[#E5A919] flex items-center justify-center text-black font-medium">
                     <ShieldCheck className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-base font-black uppercase text-white">
+                    <h3 className="text-base font-medium uppercase text-white">
                       100% Result Guarantee
                     </h3>
-                    <span className="text-xs text-[#E5A919] font-bold">
+                    <span className="text-xs text-[#E5A919] font-medium">
                       Zero Risk Fitness Commitment
                     </span>
                   </div>
                 </div>
-                <p className="text-xs text-gray-300 leading-relaxed">
-                  Follow our strict diet and assigned 1-on-1 personal workout routines. If you don&apos;t see real physical improvement, your full fees will be refunded.
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                  Follow our strict diet chart and assigned daily 1-on-1 personal training. If you see no measurable physical improvement, <strong className="text-white">your full membership fee is refunded</strong>.
                 </p>
               </div>
 
-              {/* Direct Info Box */}
-              <div className="p-6 rounded-3xl bg-[#121214] border border-zinc-800 space-y-5">
-                <h3 className="text-lg font-medium uppercase text-white pb-3 border-b border-zinc-800">
-                  Our Branches & Details
-                </h3>
-
-                {/* Branch 1 */}
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 mt-0.5">
-                    <MapPin className="w-5 h-5" />
+              {/* Branch 1 Card */}
+              <div className="p-6 rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all space-y-4 shadow-xl">
+                <div className="flex items-center justify-between">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5A919]/15 border border-[#E5A919]/40 text-[#E5A919] text-xs font-medium uppercase">
+                    <Building2 className="w-3.5 h-3.5" />
+                    <span>1st Branch</span>
                   </div>
-                  <div>
-                    <span className="text-xs font-medium text-[#E5A919] uppercase block">1st Branch (Kunchanapalli)</span>
-                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                      Door no: 3-273/2, Ground floor, Bank of Baroda building, near Aravinda High School, Kunchanapalli village, Tadepalli (Mandal), Guntur (District) - 522501.
-                    </p>
-                  </div>
+                  <span className="text-xs text-gray-400 font-medium">Pincode: 522501</span>
                 </div>
 
-                {/* Branch 2 */}
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 mt-0.5">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-medium text-[#E5A919] uppercase block">2nd Branch (KL University Rd)</span>
-                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                      20-9-121/2, KL University Road, Vaddeswaram, Revenue Ward No 20, Mangalagiri Tadepalli - 522502.
-                    </p>
-                  </div>
+                <div>
+                  <h4 className="text-lg font-medium uppercase text-white mb-1">
+                    Kunchanapalli / Tadepalli Branch
+                  </h4>
+                  <p className="text-xs text-amber-300/90 font-medium mb-2">
+                    {branches[0].landmark}
+                  </p>
+                  <p className="text-xs text-gray-300 leading-relaxed">
+                    {branches[0].address}
+                  </p>
                 </div>
 
-                {/* Phone Numbers */}
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 mt-0.5">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-medium text-gray-400 uppercase block">Phone / Mobile</span>
-                    <div className="flex flex-wrap items-center gap-3 pt-0.5">
-                      <a href="tel:+919505560783" className="text-sm font-medium text-[#E5A919] hover:underline">
-                        +91 95055 60783
-                      </a>
-                      <span className="text-gray-500">•</span>
-                      <a href="tel:+918885553402" className="text-sm font-medium text-[#E5A919] hover:underline">
-                        +91 88855 53402
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Email Address */}
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 mt-0.5">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-medium text-gray-400 uppercase block">Email Address</span>
-                    <a href="mailto:brothers.fitness640@gmail.com" className="text-sm font-medium text-gray-200 hover:text-white">
-                      brothers.fitness640@gmail.com
-                    </a>
-                  </div>
-                </div>
-
-                {/* Gym Timings */}
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 mt-0.5">
-                    <Clock className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-medium text-gray-400 uppercase block">Gym Timings</span>
-                    <p className="text-sm font-medium text-gray-200">
-                      Mon - Sun: 5:00 AM – 10:00 PM (Open All 7 Days)
-                    </p>
-                  </div>
-                </div>
-
-                {/* WhatsApp Action */}
-                <div className="pt-2">
+                <div className="pt-3 border-t border-zinc-800/80 flex items-center gap-3">
                   <a
-                    href="https://wa.me/919505560783?text=Hi%20Brothers%20Fitness%2C%20I%20want%20to%20know%20more%20about%20your%201-on-1%20Personal%20Training%20and%20100%25%20Result%20Guarantee!"
+                    href="tel:+919505560783"
+                    className="flex-1 py-2.5 rounded-xl bg-zinc-900 hover:bg-[#E5A919] hover:text-black text-gray-300 text-xs font-medium uppercase tracking-wider text-center transition-all flex items-center justify-center gap-1.5"
+                  >
+                    <Phone className="w-3.5 h-3.5" />
+                    <span>Call Branch</span>
+                  </a>
+                  <a
+                    href={branches[0].mapsQuery}
                     target="_blank"
                     rel="noreferrer"
-                    className="w-full py-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-medium text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md shadow-green-500/20"
+                    className="flex-1 py-2.5 rounded-xl border border-zinc-800 hover:border-[#E5A919] text-gray-300 hover:text-white text-xs font-medium uppercase tracking-wider text-center transition-all flex items-center justify-center gap-1.5"
                   >
-                    <MessageCircle className="w-4 h-4" />
-                    <span>Chat on WhatsApp Directly</span>
+                    <Navigation className="w-3.5 h-3.5 text-[#E5A919]" />
+                    <span>Get Directions</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Branch 2 Card */}
+              <div className="p-6 rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all space-y-4 shadow-xl">
+                <div className="flex items-center justify-between">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5A919]/15 border border-[#E5A919]/40 text-[#E5A919] text-xs font-medium uppercase">
+                    <Building2 className="w-3.5 h-3.5" />
+                    <span>2nd Branch</span>
+                  </div>
+                  <span className="text-xs text-gray-400 font-medium">Pincode: 522502</span>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-medium uppercase text-white mb-1">
+                    KL University Road / Vaddeswaram Branch
+                  </h4>
+                  <p className="text-xs text-amber-300/90 font-medium mb-2">
+                    {branches[1].landmark}
+                  </p>
+                  <p className="text-xs text-gray-300 leading-relaxed">
+                    {branches[1].address}
+                  </p>
+                </div>
+
+                <div className="pt-3 border-t border-zinc-800/80 flex items-center gap-3">
+                  <a
+                    href="tel:+919505560783"
+                    className="flex-1 py-2.5 rounded-xl bg-zinc-900 hover:bg-[#E5A919] hover:text-black text-gray-300 text-xs font-medium uppercase tracking-wider text-center transition-all flex items-center justify-center gap-1.5"
+                  >
+                    <Phone className="w-3.5 h-3.5" />
+                    <span>Call Branch</span>
+                  </a>
+                  <a
+                    href={branches[1].mapsQuery}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 py-2.5 rounded-xl border border-zinc-800 hover:border-[#E5A919] text-gray-300 hover:text-white text-xs font-medium uppercase tracking-wider text-center transition-all flex items-center justify-center gap-1.5"
+                  >
+                    <Navigation className="w-3.5 h-3.5 text-[#E5A919]" />
+                    <span>Get Directions</span>
                   </a>
                 </div>
               </div>
 
             </div>
 
-            {/* Right Col: Interactive Inquiry & Trial Pass Form */}
+            {/* Right Col (7 cols): Interactive Inquiry & Free Trial Pass Form */}
             <div className="lg:col-span-7">
               <div className="rounded-3xl p-8 sm:p-10 bg-gradient-to-b from-[#141416] to-[#0c0c0e] border border-zinc-800 shadow-2xl relative">
                 
                 {isSubmitted ? (
-                  <div className="text-center py-12 space-y-4">
-                    <div className="w-16 h-16 mx-auto rounded-full bg-[#E5A919]/20 border border-[#E5A919] flex items-center justify-center text-[#E5A919] shadow-lg shadow-[#E5A919]/30">
+                  <div className="text-center py-12 space-y-5">
+                    <div className="w-16 h-16 mx-auto rounded-full bg-[#E5A919]/20 border-2 border-[#E5A919] flex items-center justify-center text-[#E5A919] shadow-lg shadow-[#E5A919]/30">
                       <CheckCircle2 className="w-10 h-10" />
                     </div>
-                    <h3 className="text-2xl font-bold uppercase text-white">
-                      Message & Pass Confirmed!
+                    <h3 className="text-2xl sm:text-3xl font-medium uppercase text-white">
+                      Inquiry & Trial Pass Received!
                     </h3>
-                    <p className="text-gray-300 text-sm max-w-md mx-auto">
-                      Thank you <span className="text-[#E5A919] font-bold">{formData.name}</span>! Our head coach will call you on <span className="text-[#E5A919] font-bold">{formData.phone}</span> within 2 hours to confirm your free 1-on-1 trial slot.
+                    <p className="text-gray-300 text-sm max-w-md mx-auto leading-relaxed">
+                      Thank you <strong className="text-[#E5A919]">{formData.name}</strong>! We have reserved your free 1-on-1 trial slot at <strong className="text-white">{formData.branch}</strong>.
                     </p>
-                    <button
-                      onClick={() => setIsSubmitted(false)}
-                      className="mt-6 px-8 py-3 rounded-full bg-[#E5A919] text-black font-black text-xs uppercase tracking-wider cursor-pointer"
-                    >
-                      Send Another Inquiry
-                    </button>
+
+                    <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+                      <a
+                        href={`https://wa.me/919505560783?text=${whatsappMessage}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-medium text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-green-500/25 transition-all"
+                      >
+                        <MessageCircle className="w-4 h-4" />
+                        <span>Open WhatsApp for Instant Confirmation</span>
+                      </a>
+                      <button
+                        onClick={() => setIsSubmitted(false)}
+                        className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-zinc-700 text-gray-300 hover:text-white text-xs font-medium uppercase tracking-wider"
+                      >
+                        Submit Another Request
+                      </button>
+                    </div>
                   </div>
                 ) : (
                   <div>
-                    <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#E5A919] mb-1">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5A919]/15 border border-[#E5A919]/40 text-[#E5A919] text-xs font-medium uppercase tracking-wider mb-3">
                       <Sparkles className="w-4 h-4" />
-                      Get In Touch
+                      Free 1-on-1 Personal Training Pass
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-white mb-2">
-                      Send a Message & <span className="text-[#E5A919]">Claim Trial Pass</span>
+                    <h2 className="text-2xl sm:text-3xl font-medium uppercase tracking-tight text-white mb-2">
+                      Send an Inquiry & <span className="text-[#E5A919]">Claim Trial</span>
                     </h2>
                     <p className="text-xs sm:text-sm text-gray-400 mb-6">
-                      Fill out the form below to reserve your 1-on-1 personal workout trial and get your body assessment scheduled.
+                      Fill out the form below to reserve your 1-on-1 trial workout and customized body assessment at your chosen branch.
                     </p>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
+                      
+                      {/* Name */}
                       <div>
-                        <label className="block text-xs font-bold text-gray-300 uppercase mb-1">Full Name</label>
+                        <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
+                          Full Name *
+                        </label>
                         <input
                           type="text"
                           required
@@ -255,9 +377,12 @@ export default function ContactPage() {
                         />
                       </div>
 
+                      {/* Phone & Email */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-gray-300 uppercase mb-1">Phone Number</label>
+                          <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
+                            Phone Number *
+                          </label>
                           <input
                             type="tel"
                             required
@@ -269,11 +394,12 @@ export default function ContactPage() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-bold text-gray-300 uppercase mb-1">Email Address</label>
+                          <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
+                            Email Address
+                          </label>
                           <input
                             type="email"
-                            required
-                            placeholder="your@email.com"
+                            placeholder="your.email@example.com"
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                             className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors"
@@ -281,59 +407,86 @@ export default function ContactPage() {
                         </div>
                       </div>
 
+                      {/* Branch Selection */}
+                      <div>
+                        <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
+                          Select Nearest Branch *
+                        </label>
+                        <select
+                          value={formData.branch}
+                          onChange={(e) => setFormData({ ...formData, branch: e.target.value })}
+                          className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors"
+                        >
+                          <option value="1st Branch (Kunchanapalli) - 522501">
+                            1st Branch (Kunchanapalli, Near Bank of Baroda - 522501)
+                          </option>
+                          <option value="2nd Branch (KL University Rd) - 522502">
+                            2nd Branch (KL University Road, Vaddeswaram - 522502)
+                          </option>
+                        </select>
+                      </div>
+
+                      {/* Fitness Goal & Time Slot */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-gray-300 uppercase mb-1">Fitness Goal</label>
+                          <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
+                            Primary Goal
+                          </label>
                           <select
                             value={formData.goal}
                             onChange={(e) => setFormData({ ...formData, goal: e.target.value })}
                             className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors"
                           >
-                            <option value="Fat Loss & Toning">Fat Loss & Toning</option>
-                            <option value="Muscle Building">Muscle Building</option>
-                            <option value="Strength & Powerlifting">Strength & Powerlifting</option>
-                            <option value="Functional Fitness">Functional & Athletic Fitness</option>
-                            <option value="General Health">General Health & Posture</option>
+                            <option>Fat Loss & Body Toning</option>
+                            <option>Muscle Building & Hypertrophy</option>
+                            <option>1-on-1 Dedicated Personal Coaching</option>
+                            <option>Strength & Functional Training</option>
+                            <option>General Stamina & Health</option>
                           </select>
                         </div>
 
                         <div>
-                          <label className="block text-xs font-bold text-gray-300 uppercase mb-1">Preferred Time Slot</label>
+                          <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
+                            Preferred Time
+                          </label>
                           <select
                             value={formData.timeSlot}
                             onChange={(e) => setFormData({ ...formData, timeSlot: e.target.value })}
                             className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors"
                           >
-                            <option value="Morning (06:00 AM - 10:00 AM)">Morning (06:00 AM - 10:00 AM)</option>
-                            <option value="Afternoon (11:00 AM - 04:00 PM)">Afternoon (11:00 AM - 04:00 PM)</option>
-                            <option value="Evening (05:00 PM - 09:30 PM)">Evening (05:00 PM - 09:30 PM)</option>
+                            <option>Morning (05:00 AM - 09:00 AM)</option>
+                            <option>Mid-Day (10:00 AM - 04:00 PM)</option>
+                            <option>Evening (05:00 PM - 10:00 PM)</option>
                           </select>
                         </div>
                       </div>
 
+                      {/* Message */}
                       <div>
-                        <label className="block text-xs font-bold text-gray-300 uppercase mb-1">Any Specific Questions / Medical History</label>
+                        <label className="block text-xs font-medium text-gray-300 uppercase mb-1">
+                          Message or Medical Details (Optional)
+                        </label>
                         <textarea
                           rows={3}
-                          placeholder="Tell us about any specific fitness goals or questions..."
+                          placeholder="Tell us about previous gym experience, injuries, or specific transformation goals..."
                           value={formData.message}
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors resize-none"
                         />
                       </div>
 
-                      <div className="p-3.5 rounded-xl bg-[#E5A919]/10 border border-[#E5A919]/30 text-xs text-amber-300 flex items-center gap-2.5">
-                        <ShieldCheck className="w-4 h-4 text-[#E5A919] shrink-0" />
-                        <span>Protected under Brother&apos;s 100% Results or Full Money-Back Policy.</span>
-                      </div>
-
+                      {/* Submit */}
                       <button
                         type="submit"
-                        className="w-full py-4 rounded-xl bg-gradient-to-r from-[#E5A919] via-[#F59E0B] to-[#D97706] text-black font-black text-xs uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-xl shadow-[#E5A919]/30 flex items-center justify-center gap-2 cursor-pointer"
+                        className="w-full py-4 rounded-xl bg-gradient-to-r from-[#E5A919] via-[#F59E0B] to-[#D97706] hover:brightness-110 text-black font-medium text-sm uppercase tracking-wider transition-all shadow-xl shadow-[#E5A919]/30 flex items-center justify-center gap-2 cursor-pointer"
                       >
+                        <span>Reserve My Free 1-on-1 Trial Pass</span>
                         <Send className="w-4 h-4" />
-                        <span>Submit & Request Free Trial Pass</span>
                       </button>
+
+                      <p className="text-[11px] text-gray-400 text-center pt-1">
+                        🔒 Zero spam. We protect your privacy. Backed by our 100% money-back result guarantee.
+                      </p>
                     </form>
                   </div>
                 )}
@@ -347,38 +500,42 @@ export default function ContactPage() {
         {/* FAQ Accordion Section */}
         <section id="faq" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center mb-10">
-            <span className="text-xs sm:text-sm font-black uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
+            <span className="text-xs font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
               FREQUENTLY ASKED QUESTIONS
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase text-white">
-              Everything You Need to Know
+            <h2 className="text-3xl sm:text-4xl font-medium uppercase tracking-tight text-white">
+              Got Questions? We&apos;ve Got Answers.
             </h2>
           </div>
 
           <div className="space-y-4">
-            {faqs.map((faq, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl bg-[#121214] border border-zinc-800 overflow-hidden transition-colors"
-              >
-                <button
-                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-white hover:text-[#E5A919] transition-colors cursor-pointer"
+            {faqs.map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <div
+                  key={idx}
+                  className="rounded-2xl bg-[#121214] border border-zinc-800 overflow-hidden transition-all"
                 >
-                  <span className="text-sm sm:text-base">{faq.q}</span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-[#E5A919] shrink-0 transition-transform duration-200 ${
-                      openFaq === idx ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {openFaq === idx && (
-                  <div className="px-5 pb-5 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-zinc-900 pt-3">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-medium text-sm sm:text-base text-white hover:text-[#E5A919] transition-colors cursor-pointer"
+                  >
+                    <span>{faq.q}</span>
+                    <ChevronDown
+                      className={`w-5 h-5 text-[#E5A919] shrink-0 transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {isOpen && (
+                    <div className="px-5 pb-5 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-zinc-800/80 pt-3">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </section>
 
@@ -386,12 +543,14 @@ export default function ContactPage() {
 
       <Footer />
 
+      {/* Trial Modal */}
       <TrialBookingModal
         isOpen={isTrialModalOpen}
         onClose={() => setIsTrialModalOpen(false)}
         initialPlan={selectedPlan}
       />
 
+      {/* Floating WhatsApp Action Button */}
       <WhatsAppButton onOpenTrialModal={() => setIsTrialModalOpen(true)} />
     </div>
   );
