@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Users, Award, FileText, Apple, ArrowRight, ShieldCheck, Dumbbell, Sparkles } from "lucide-react";
+import { Users, Award, FileText, Apple, ArrowRight, ShieldCheck, Dumbbell, Sparkles, UserCheck } from "lucide-react";
 
 interface HeroSectionProps {
   onOpenTrialModal: (plan?: string) => void;
@@ -11,24 +11,24 @@ interface HeroSectionProps {
 export default function HeroSection({ onOpenTrialModal }: HeroSectionProps) {
   const highlights = [
     {
-      icon: Users,
-      title: "Expert Trainers",
-      desc: "1-on-1 Dedicated Coach",
-    },
-    {
       icon: Award,
-      title: "Premium Equipment",
-      desc: "Olympic & Biomechanical",
+      title: "10+ Years",
+      desc: "Gym Experience",
     },
     {
-      icon: FileText,
-      title: "Personalized Plans",
-      desc: "Tailored to your body",
+      icon: Users,
+      title: "500+ Members",
+      desc: "Transformed Lives",
     },
     {
-      icon: Apple,
-      title: "Nutrition Guide",
-      desc: "Strict Macro Diets",
+      icon: UserCheck,
+      title: "Certified Trainers",
+      desc: "1-on-1 Dedicated Coaches",
+    },
+    {
+      icon: ShieldCheck,
+      title: "100% Guaranteed",
+      desc: "Results or Full Refund",
     },
   ];
 
@@ -38,20 +38,20 @@ export default function HeroSection({ onOpenTrialModal }: HeroSectionProps) {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#E5A919]/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-12 left-10 w-96 h-96 bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 w-full relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           
           {/* Left Hero Content */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left space-y-6">
+          <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-start text-left space-y-6">
             
             {/* Top Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#E5A919]/20 to-black border border-[#E5A919]/40 text-[#E5A919] text-xs md:text-sm font-bold tracking-wide uppercase shadow-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#E5A919]/20 to-black border border-[#E5A919]/40 text-[#E5A919] text-xs md:text-sm font-medium tracking-wide uppercase shadow-sm">
               <Sparkles className="w-4 h-4 text-amber-400 animate-spin" style={{ animationDuration: "8s" }} />
               <span>Personal Training For Every Member</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-[1.05]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-medium uppercase tracking-tight text-white leading-[1.05]">
               STRONGER <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FDE047] via-[#E5A919] to-[#D97706] drop-shadow-[0_0_25px_rgba(229,169,25,0.4)]">
                 EVERYDAY
@@ -60,7 +60,7 @@ export default function HeroSection({ onOpenTrialModal }: HeroSectionProps) {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-gray-300 text-base sm:text-lg md:text-xl font-normal max-w-xl leading-relaxed">
+            <p className="text-gray-300 text-sm sm:text-base md:text-lg font-normal max-w-xl leading-relaxed">
               Transform your body, elevate your mind and become the strongest version of yourself with customized 1-on-1 coaching.
             </p>
 
@@ -70,7 +70,7 @@ export default function HeroSection({ onOpenTrialModal }: HeroSectionProps) {
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <div className="text-xs sm:text-sm">
-                <span className="font-bold text-white uppercase tracking-wider text-[11px] block text-[#E5A919]">
+                <span className="font-medium text-white uppercase tracking-wider text-[11px] block text-[#E5A919]">
                   🔥 100% Results Or Money-Back Guarantee
                 </span>
                 <span className="text-gray-300">
@@ -83,7 +83,7 @@ export default function HeroSection({ onOpenTrialModal }: HeroSectionProps) {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <button
                 onClick={() => onOpenTrialModal("Personal Training Membership")}
-                className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#E5A919] via-[#F59E0B] to-[#D97706] text-black font-black text-sm uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-xl shadow-[#E5A919]/30 flex items-center gap-2 cursor-pointer"
+                className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#E5A919] via-[#F59E0B] to-[#D97706] text-black font-medium text-sm uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-xl shadow-[#E5A919]/30 flex items-center gap-2 cursor-pointer"
               >
                 <span>Join Now</span>
                 <ArrowRight className="w-4 h-4" />
@@ -91,7 +91,7 @@ export default function HeroSection({ onOpenTrialModal }: HeroSectionProps) {
 
               <button
                 onClick={() => onOpenTrialModal("Free 1-on-1 Trial Session")}
-                className="px-8 py-3.5 rounded-full border-2 border-zinc-700 bg-black/40 hover:border-[#E5A919] hover:bg-[#E5A919]/10 text-white font-bold text-sm uppercase tracking-wider transition-all cursor-pointer"
+                className="px-8 py-3.5 rounded-full border-2 border-zinc-700 bg-black/40 hover:border-[#E5A919] hover:bg-[#E5A919]/10 text-white font-medium text-sm uppercase tracking-wider transition-all cursor-pointer"
               >
                 Book a Free Trial
               </button>
@@ -109,7 +109,7 @@ export default function HeroSection({ onOpenTrialModal }: HeroSectionProps) {
                     <div className="w-8 h-8 rounded-lg bg-[#E5A919]/10 flex items-center justify-center text-[#E5A919] mb-2">
                       <Icon className="w-4 h-4" />
                     </div>
-                    <span className="text-xs font-bold text-white leading-snug">
+                    <span className="text-xs font-medium text-white leading-snug">
                       {item.title}
                     </span>
                     <span className="text-[10px] text-gray-400 leading-tight">
@@ -121,18 +121,18 @@ export default function HeroSection({ onOpenTrialModal }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Right Hero Visual: Single full artwork image from public/img/h1.png */}
-          <div className="lg:col-span-5 flex items-center justify-center relative w-full">
-            {/* Ambient Background Glow */}
-            <div className="absolute w-[380px] h-[380px] sm:w-[500px] sm:h-[500px] rounded-full bg-[#E5A919]/15 blur-3xl pointer-events-none" />
+          {/* Right Hero Visual: Large Prominent Full Artwork Image */}
+          <div className="lg:col-span-6 xl:col-span-6 flex items-center justify-center lg:justify-end relative w-full mt-6 lg:mt-0">
+            {/* Ambient Background Halo Glow */}
+            <div className="absolute w-[450px] h-[450px] sm:w-[600px] sm:h-[600px] lg:w-[700px] lg:h-[700px] rounded-full bg-[#E5A919]/20 blur-[130px] pointer-events-none" />
 
-            <div className="relative w-full max-w-[500px] aspect-square flex items-center justify-center group">
+            <div className="relative w-full max-w-[620px] lg:max-w-[720px] xl:max-w-[820px] h-[460px] sm:h-[580px] lg:h-[660px] xl:h-[720px] flex items-center justify-center group">
               <Image
-                src="/img/h1.png"
+                src="/img/heronew.png"
                 alt="Brother's Fitness Hero Artwork"
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
-                className="object-contain drop-shadow-[0_0_40px_rgba(229,169,25,0.35)] group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 820px"
+                className="object-contain drop-shadow-[0_0_55px_rgba(229,169,25,0.45)] group-hover:scale-105 transition-transform duration-700"
                 priority
               />
             </div>
