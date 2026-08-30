@@ -7,6 +7,9 @@ import GuaranteeBanner from "@/components/GuaranteeBanner";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import AboutGymSection from "@/components/AboutGymSection";
 import ProgramsSection from "@/components/ProgramsSection";
+import FacilitiesSection from "@/components/FacilitiesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import CtaBanner from "@/components/CtaBanner";
 import Footer from "@/components/Footer";
 import TrialBookingModal from "@/components/TrialBookingModal";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -33,17 +36,26 @@ export default function HomePage() {
         {/* 1. Hero Section */}
         <HeroSection onOpenTrialModal={handleOpenTrialModal} />
 
-        {/* 2. Core 100% Results / Money-Back Guarantee Banner */}
+        {/* 2. 100% Results / Money-Back Guarantee Banner */}
         <GuaranteeBanner onOpenTrialModal={handleOpenTrialModal} />
 
-        {/* 3. Why Choose Us (Modern Equipment, Certified Trainers, Personalized Training, Flexible Memberships, Clean & Safe Environment) */}
+        {/* 3. Why Choose Us */}
         <WhyChooseUsSection onOpenTrialModal={handleOpenTrialModal} />
 
-        {/* 4. About the Gym (Short intro, Gym philosophy, Mission / vision, Image of the gym, Learn More button) */}
+        {/* 4. About the Gym */}
         <AboutGymSection onOpenTrialModal={handleOpenTrialModal} />
 
-        {/* 5. Programs / Training (Strength Training, Weight Loss, Muscle Building, Personal Training, CrossFit/Functional, Cardio, Group Classes) */}
+        {/* 5. Programs / Training */}
         <ProgramsSection onOpenTrialModal={handleOpenTrialModal} />
+
+        {/* 6. Facilities / Equipment (Strength, Cardio, Free weights, Functional, Changing rooms, Shower, Parking) */}
+        <FacilitiesSection onOpenTrialModal={handleOpenTrialModal} />
+
+        {/* 7. Testimonials (Customer reviews with Photo, Name, Rating ⭐⭐⭐⭐⭐, Short review) */}
+        <TestimonialsSection onOpenTrialModal={handleOpenTrialModal} />
+
+        {/* 8. Call-to-Action Banner ("Your Stronger Self Starts Today." -> "Start Your Fitness Journey →") */}
+        <CtaBanner onOpenTrialModal={handleOpenTrialModal} />
       </main>
 
       {/* Footer */}
