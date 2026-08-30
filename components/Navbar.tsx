@@ -181,11 +181,11 @@ export default function Navbar({ onOpenTrialModal }: NavbarProps) {
               Join Now & Claim Trial
             </button>
             <a
-              href="tel:+919876543210"
+              href="tel:+919505560783"
               className="w-full py-3 rounded-xl border border-zinc-800 text-gray-300 hover:text-white hover:border-[#E5A919]/40 text-center font-medium text-xs flex items-center justify-center gap-2"
             >
               <Phone className="w-4 h-4 text-[#E5A919]" />
-              Call Gym: +91 98765 43210
+              Call Gym: +91 95055 60783
             </a>
           </div>
         </div>

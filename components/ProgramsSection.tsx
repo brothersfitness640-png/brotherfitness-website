@@ -57,7 +57,7 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
     {
       id: "personal-training",
       title: "Personal Training",
-      category: "1-on-1 Elite Coaching",
+      category: "",
       description: "Our signature offering: dedicated 1-on-1 coaching for every candidate with customized workouts.",
       image: "/img/5.jpeg",
       icon: UserCheck,
@@ -146,8 +146,8 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
                     : "border-zinc-800 hover:border-[#E5A919]"
                 }`}
               >
-                {/* Image */}
-                <div className="relative h-48 w-full overflow-hidden bg-zinc-900">
+                {/* Image - Clean view without obstructing overlay labels */}
+                <div className="relative h-52 w-full overflow-hidden bg-zinc-900">
                   <Image
                     src={program.image}
                     alt={program.title}
@@ -155,24 +155,26 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#121214] via-black/30 to-transparent" />
-                  
-                  {/* Category Badge */}
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/80 border border-zinc-700 backdrop-blur-md flex items-center gap-1.5 text-[10px] font-medium text-amber-400">
-                    <Icon className="w-3 h-3 text-[#E5A919]" />
-                    <span>{program.category}</span>
-                  </div>
-
-                  {isFeatured && (
-                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-[#E5A919] text-black text-[9px] font-medium uppercase tracking-wider shadow">
-                      Most Popular
-                    </div>
-                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#121214] via-transparent to-transparent" />
                 </div>
 
-                {/* Content */}
+                {/* Content Section with Category Label above Title */}
                 <div className="p-6 flex flex-col justify-between flex-grow">
                   <div>
+                    {/* Category Label and Popular Tag placed above the title */}
+                    <div className="flex items-center justify-between gap-2 mb-2.5">
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#E5A919]/15 border border-[#E5A919]/30 text-[10px] font-medium text-[#E5A919]">
+                        <Icon className="w-3 h-3" />
+                        <span>{program.category}</span>
+                      </div>
+
+                      {isFeatured && (
+                        <span className="px-2 py-0.5 rounded-full bg-[#E5A919] text-black text-[9px] font-medium uppercase tracking-wider">
+                          Most Popular
+                        </span>
+                      )}
+                    </div>
+
                     <h3 className="text-lg font-medium uppercase text-white mb-2 group-hover:text-[#E5A919] transition-colors">
                       {program.title}
                     </h3>

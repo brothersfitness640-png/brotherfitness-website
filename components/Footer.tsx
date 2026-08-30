@@ -82,7 +82,7 @@ export default function Footer() {
 
               {/* WhatsApp */}
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919505560783"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 hover:border-[#E5A919] hover:bg-[#E5A919]/20 text-gray-400 hover:text-[#E5A919] flex items-center justify-center transition-all"
@@ -96,7 +96,7 @@ export default function Footer() {
 
           {/* Col 2: Quick Links */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white">
+            <h4 className="text-sm font-medium uppercase tracking-wider text-white">
               Quick Links
             </h4>
             <ul className="space-y-2 text-xs">
@@ -116,13 +116,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#trainers" className="hover:text-[#E5A919] transition-colors">
-                  Trainers
-                </Link>
-              </li>
-              <li>
-                <Link href="/#schedule" className="hover:text-[#E5A919] transition-colors">
-                  Schedule
+                <Link href="/#facilities" className="hover:text-[#E5A919] transition-colors">
+                  Facilities
                 </Link>
               </li>
               <li>
@@ -133,60 +128,49 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Support */}
+          {/* Col 3: Branches */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white">
-              Support & Guarantee
+            <h4 className="text-sm font-medium uppercase tracking-wider text-white">
+              Our Branches
             </h4>
-            <ul className="space-y-2 text-xs">
-              <li>
-                <Link href="/#pricing" className="hover:text-[#E5A919] transition-colors">
-                  Membership Plans
-                </Link>
-              </li>
-              <li>
-                <Link href="/#transformations" className="hover:text-[#E5A919] transition-colors">
-                  Success Stories
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact#faq" className="hover:text-[#E5A919] transition-colors">
-                  100% Refund Guarantee Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact#faq" className="hover:text-[#E5A919] transition-colors">
-                  Frequently Asked Questions
-                </Link>
-              </li>
-              <li>
-                <span className="text-zinc-500 hover:text-zinc-400 cursor-pointer">
-                  Privacy Policy • Terms & Conditions
-                </span>
-              </li>
-            </ul>
+            <div className="space-y-3 text-xs">
+              <div className="p-3 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 space-y-1">
+                <span className="text-[#E5A919] font-medium block">1st Branch (Kunchanapalli)</span>
+                <p className="text-gray-400 leading-relaxed text-[11px]">
+                  Door no: 3-273/2, Ground floor, Bank of Baroda building, near Aravinda High School, Kunchanapalli village, Tadepalli (Mandal), Guntur (Dist) - 522501.
+                </p>
+              </div>
+
+              <div className="p-3 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 space-y-1">
+                <span className="text-[#E5A919] font-medium block">2nd Branch (KL University Rd)</span>
+                <p className="text-gray-400 leading-relaxed text-[11px]">
+                  20-9-121/2, KL University Road, Vaddeswaram, Revenue Ward No 20, Mangalagiri Tadepalli - 522502.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Col 4: Contact Us */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white">
-              Contact Us
+            <h4 className="text-sm font-medium uppercase tracking-wider text-white">
+              Get in Touch
             </h4>
             <ul className="space-y-3 text-xs">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#E5A919] shrink-0 mt-0.5" />
-                <span>123 Fitness Street, Elite Commercial Complex, Main Road</span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#E5A919] shrink-0" />
-                <a href="tel:+919876543210" className="hover:text-white transition-colors">
-                  +91 98765 43210
-                </a>
+                <Phone className="w-4 h-4 text-[#E5A919] shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <a href="tel:+919505560783" className="text-gray-300 hover:text-[#E5A919] transition-colors font-medium">
+                    +91 95055 60783
+                  </a>
+                  <a href="tel:+918885553402" className="text-gray-300 hover:text-[#E5A919] transition-colors font-medium">
+                    +91 88855 53402
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#E5A919] shrink-0" />
-                <a href="mailto:info@brotherfitness.com" className="hover:text-white transition-colors">
-                  info@brotherfitness.com
+                <a href="mailto:brothers.fitness640@gmail.com" className="hover:text-white transition-colors truncate">
+                  brothers.fitness640@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2.5">

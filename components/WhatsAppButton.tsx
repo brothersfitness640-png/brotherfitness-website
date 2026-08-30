@@ -21,7 +21,7 @@ export default function WhatsAppButton({ onOpenTrialModal }: WhatsAppButtonProps
 
       {/* Floating WhatsApp Action */}
       <a
-        href="https://wa.me/919876543210?text=Hi%20Brothers%20Fitness%2C%20I%20want%20to%20know%20more%20about%20your%201-on-1%20Personal%20Training%20and%20100%25%20Result%20Guarantee!"
+        href="https://wa.me/919505560783?text=Hi%20Brothers%20Fitness%2C%20I%20want%20to%20know%20more%20about%20your%201-on-1%20Personal%20Training%20and%20100%25%20Result%20Guarantee!"
         target="_blank"
         rel="noreferrer"
         className="w-13 h-13 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-2xl shadow-green-500/40 hover:scale-110 active:scale-95 transition-transform"

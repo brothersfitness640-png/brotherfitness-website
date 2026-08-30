@@ -116,64 +116,88 @@ export default function ContactPage() {
 
               {/* Direct Info Box */}
               <div className="p-6 rounded-3xl bg-[#121214] border border-zinc-800 space-y-5">
-                <h3 className="text-lg font-black uppercase text-white pb-3 border-b border-zinc-800">
-                  Gym Details & Location
+                <h3 className="text-lg font-medium uppercase text-white pb-3 border-b border-zinc-800">
+                  Our Branches & Details
                 </h3>
 
+                {/* Branch 1 */}
                 <div className="flex items-start gap-3.5">
                   <div className="w-9 h-9 rounded-xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 mt-0.5">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-gray-400 uppercase block">Gym Address</span>
-                    <p className="text-sm font-semibold text-white">
-                      123 Fitness Street, Elite Commercial Complex, Main Road, City
+                    <span className="text-xs font-medium text-[#E5A919] uppercase block">1st Branch (Kunchanapalli)</span>
+                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                      Door no: 3-273/2, Ground floor, Bank of Baroda building, near Aravinda High School, Kunchanapalli village, Tadepalli (Mandal), Guntur (District) - 522501.
                     </p>
                   </div>
                 </div>
 
+                {/* Branch 2 */}
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 mt-0.5">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-medium text-[#E5A919] uppercase block">2nd Branch (KL University Rd)</span>
+                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                      20-9-121/2, KL University Road, Vaddeswaram, Revenue Ward No 20, Mangalagiri Tadepalli - 522502.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Phone Numbers */}
                 <div className="flex items-start gap-3.5">
                   <div className="w-9 h-9 rounded-xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 mt-0.5">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-gray-400 uppercase block">Phone / Mobile</span>
-                    <a href="tel:+919876543210" className="text-sm font-bold text-[#E5A919] hover:underline">
-                      +91 98765 43210
-                    </a>
+                    <span className="text-xs font-medium text-gray-400 uppercase block">Phone / Mobile</span>
+                    <div className="flex flex-wrap items-center gap-3 pt-0.5">
+                      <a href="tel:+919505560783" className="text-sm font-medium text-[#E5A919] hover:underline">
+                        +91 95055 60783
+                      </a>
+                      <span className="text-gray-500">•</span>
+                      <a href="tel:+918885553402" className="text-sm font-medium text-[#E5A919] hover:underline">
+                        +91 88855 53402
+                      </a>
+                    </div>
                   </div>
                 </div>
 
+                {/* Email Address */}
                 <div className="flex items-start gap-3.5">
                   <div className="w-9 h-9 rounded-xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 mt-0.5">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-gray-400 uppercase block">Email Address</span>
-                    <a href="mailto:info@brotherfitness.com" className="text-sm font-medium text-gray-200 hover:text-white">
-                      info@brotherfitness.com
+                    <span className="text-xs font-medium text-gray-400 uppercase block">Email Address</span>
+                    <a href="mailto:brothers.fitness640@gmail.com" className="text-sm font-medium text-gray-200 hover:text-white">
+                      brothers.fitness640@gmail.com
                     </a>
                   </div>
                 </div>
 
+                {/* Gym Timings */}
                 <div className="flex items-start gap-3.5">
                   <div className="w-9 h-9 rounded-xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 mt-0.5">
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-gray-400 uppercase block">Gym Timings</span>
+                    <span className="text-xs font-medium text-gray-400 uppercase block">Gym Timings</span>
                     <p className="text-sm font-medium text-gray-200">
                       Mon - Sun: 5:00 AM – 10:00 PM (Open All 7 Days)
                     </p>
                   </div>
                 </div>
 
+                {/* WhatsApp Action */}
                 <div className="pt-2">
                   <a
-                    href="https://wa.me/919876543210?text=Hi%20Brothers%20Fitness%2C%20I%20want%20to%20know%20more%20about%20your%201-on-1%20Personal%20Training%20and%20100%25%20Result%20Guarantee!"
+                    href="https://wa.me/919505560783?text=Hi%20Brothers%20Fitness%2C%20I%20want%20to%20know%20more%20about%20your%201-on-1%20Personal%20Training%20and%20100%25%20Result%20Guarantee!"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-full py-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md shadow-green-500/20"
+                    className="w-full py-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-medium text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md shadow-green-500/20"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>Chat on WhatsApp Directly</span>
@@ -237,7 +261,7 @@ export default function ContactPage() {
                           <input
                             type="tel"
                             required
-                            placeholder="+91 98765 43210"
+                            placeholder="+91 95055 60783"
                             value={formData.phone}
                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                             className="w-full px-4 py-3 rounded-xl bg-black/60 border border-zinc-800 text-white text-sm focus:outline-none focus:border-[#E5A919] transition-colors"
