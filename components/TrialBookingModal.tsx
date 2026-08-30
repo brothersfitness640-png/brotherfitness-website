@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { X, CheckCircle2, ShieldCheck, Sparkles, User, Phone, Mail } from "lucide-react";
 import CustomDropdown from "@/components/CustomDropdown";
 
@@ -15,7 +15,7 @@ export default function TrialBookingModal({
   onClose,
   initialPlan = "Free 1-on-1 Trial Session",
 }: TrialBookingModalProps) {
-  const [formData, setFormData] = useState({
+  const initialFormState = {
     name: "",
     phone: "",
     email: "",
@@ -23,19 +23,64 @@ export default function TrialBookingModal({
     goal: "Fat Loss & Toning",
     timeSlot: "Morning (05:00 AM - 09:00 AM)",
     plan: initialPlan,
-  });
+  };
 
+  const [formData, setFormData] = useState(initialFormState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [countdown, setCountdown] = useState(5);
+
+  // Sync plan if initialPlan changes
+  useEffect(() => {
+    setFormData((prev) => ({ ...prev, plan: initialPlan }));
+  }, [initialPlan]);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          source: `Modal Booking (${formData.plan || initialPlan})`,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to submit trial booking.");
+      }
+
+      setIsSubmitted(true);
+      setCountdown(5);
+
+      // Auto return to normal state and close modal after 5 seconds
+      let remaining = 5;
+      const interval = setInterval(() => {
+        remaining -= 1;
+        setCountdown(remaining);
+        if (remaining <= 0) {
+          clearInterval(interval);
+          setIsSubmitted(false);
+          setFormData(initialFormState);
+          onClose();
+        }
+      }, 1000);
+    } catch (err) {
+      console.error(err);
+      alert("There was an error sending your booking. Please try again or message us on WhatsApp.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
     setIsSubmitted(false);
+    setFormData(initialFormState);
     onClose();
   };
 
@@ -67,7 +112,7 @@ export default function TrialBookingModal({
 
         {/* Close Button */}
         <button
-          onClick={onClose}
+          onClick={handleReset}
           className="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-[#E5A919]/20 text-gray-400 hover:text-[#E5A919] transition-colors cursor-pointer"
           aria-label="Close Modal"
         >
@@ -83,15 +128,21 @@ export default function TrialBookingModal({
               Trial Session Confirmed! 🎉
             </h3>
             <p className="text-gray-300 text-sm max-w-md mx-auto leading-relaxed">
-              Thank you, <span className="text-[#E5A919] font-medium">{formData.name}</span>! Our head trainer will contact you shortly on{" "}
+              Thank you, <span className="text-[#E5A919] font-medium">{formData.name}</span>! An email confirmation has been sent to our head trainer. We will contact you on{" "}
               <span className="text-[#E5A919] font-medium">{formData.phone}</span> to schedule your 1-on-1 personal session & body assessment at <span className="text-white font-medium">{formData.branch}</span>.
             </p>
+
+            <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs text-amber-300">
+              <span>Closing in {countdown}s...</span>
+            </div>
+
             <div className="p-4 rounded-2xl bg-black/40 border border-[#E5A919]/30 text-xs text-amber-200/90 flex items-center gap-3 text-left">
               <ShieldCheck className="w-6 h-6 text-[#E5A919] shrink-0" />
               <span>
                 <strong className="font-medium text-white">100% Result Guarantee Active:</strong> Follow our strict nutrition and custom workout program. Guaranteed measurable results or 100% money back!
               </span>
             </div>
+
             <button
               onClick={handleReset}
               className="mt-6 w-full py-3.5 rounded-xl bg-gradient-to-r from-[#E5A919] to-[#F59E0B] text-black font-medium text-sm tracking-wide uppercase hover:brightness-110 transition-all shadow-md shadow-[#E5A919]/30 cursor-pointer"
@@ -193,9 +244,17 @@ export default function TrialBookingModal({
 
               <button
                 type="submit"
-                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#E5A919] via-[#F59E0B] to-[#D97706] text-black font-medium text-xs sm:text-sm tracking-wider uppercase hover:brightness-110 transition-all shadow-xl shadow-[#E5A919]/30 cursor-pointer"
+                disabled={isSubmitting}
+                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#E5A919] via-[#F59E0B] to-[#D97706] disabled:opacity-70 text-black font-medium text-xs sm:text-sm tracking-wider uppercase hover:brightness-110 transition-all shadow-xl shadow-[#E5A919]/30 cursor-pointer flex items-center justify-center gap-2"
               >
-                Confirm Free 1-on-1 Trial
+                {isSubmitting ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                    <span>Confirming Booking...</span>
+                  </>
+                ) : (
+                  <span>Confirm Free 1-on-1 Trial</span>
+                )}
               </button>
             </form>
           </div>
@@ -204,3 +263,4 @@ export default function TrialBookingModal({
     </div>
   );
 }
+

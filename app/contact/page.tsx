@@ -30,22 +30,60 @@ export default function ContactPage() {
   const [isTrialModalOpen, setIsTrialModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<string>("Contact Page Inquiry");
 
-  const [formData, setFormData] = useState({
+  const initialFormState = {
     name: "",
     phone: "",
     email: "",
-    branch: "1st Branch (Kunchanapalli)",
+    branch: "1st Branch (Kunchanapalli - 522501)",
     goal: "Fat Loss & Body Toning",
     timeSlot: "Morning (05:00 AM - 09:00 AM)",
     message: "",
-  });
+  };
 
+  const [formData, setFormData] = useState(initialFormState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [countdown, setCountdown] = useState(5);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          source: "Contact Page Booking Form",
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to submit inquiry.");
+      }
+
+      setIsSubmitted(true);
+      setCountdown(5);
+
+      // 5-second countdown to return to normal state
+      let remaining = 5;
+      const interval = setInterval(() => {
+        remaining -= 1;
+        setCountdown(remaining);
+        if (remaining <= 0) {
+          clearInterval(interval);
+          setIsSubmitted(false);
+          setFormData(initialFormState);
+        }
+      }, 1000);
+    } catch (err) {
+      console.error(err);
+      alert("There was an error sending your booking. Please try again or message us on WhatsApp.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const whatsappMessage = encodeURIComponent(
@@ -401,8 +439,12 @@ export default function ContactPage() {
                       Inquiry & Trial Pass Received!
                     </h3>
                     <p className="text-gray-300 text-sm max-w-md mx-auto leading-relaxed">
-                      Thank you <strong className="text-[#E5A919]">{formData.name}</strong>! We have reserved your free 1-on-1 trial slot at <strong className="text-white">{formData.branch}</strong>.
+                      Thank you <strong className="text-[#E5A919]">{formData.name}</strong>! An email confirmation has been sent to our head trainer. We have reserved your free 1-on-1 trial slot at <strong className="text-white">{formData.branch}</strong>.
                     </p>
+
+                    <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs text-amber-300">
+                      <span>Returning to form in {countdown}s...</span>
+                    </div>
 
                     <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                       <a
@@ -415,10 +457,13 @@ export default function ContactPage() {
                         <span>Open WhatsApp for Instant Confirmation</span>
                       </a>
                       <button
-                        onClick={() => setIsSubmitted(false)}
-                        className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-zinc-700 text-gray-300 hover:text-white text-xs font-medium uppercase tracking-wider"
+                        onClick={() => {
+                          setIsSubmitted(false);
+                          setFormData(initialFormState);
+                        }}
+                        className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-zinc-700 text-gray-300 hover:text-white text-xs font-medium uppercase tracking-wider cursor-pointer"
                       >
-                        Submit Another Request
+                        Reset Form Now
                       </button>
                     </div>
                   </div>
@@ -540,10 +585,20 @@ export default function ContactPage() {
                       {/* Submit */}
                       <button
                         type="submit"
-                        className="w-full py-4 rounded-xl bg-gradient-to-r from-[#E5A919] via-[#F59E0B] to-[#D97706] hover:brightness-110 text-black font-medium text-sm uppercase tracking-wider transition-all shadow-xl shadow-[#E5A919]/30 flex items-center justify-center gap-2 cursor-pointer"
+                        disabled={isSubmitting}
+                        className="w-full py-4 rounded-xl bg-gradient-to-r from-[#E5A919] via-[#F59E0B] to-[#D97706] hover:brightness-110 disabled:opacity-70 text-black font-medium text-sm uppercase tracking-wider transition-all shadow-xl shadow-[#E5A919]/30 flex items-center justify-center gap-2 cursor-pointer"
                       >
-                        <span>Reserve My Free 1-on-1 Trial Pass</span>
-                        <Send className="w-4 h-4" />
+                        {isSubmitting ? (
+                          <>
+                            <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                            <span>Sending Confirmation...</span>
+                          </>
+                        ) : (
+                          <>
+                            <span>Reserve My Free 1-on-1 Trial Pass</span>
+                            <Send className="w-4 h-4" />
+                          </>
+                        )}
                       </button>
 
                       <p className="text-[11px] text-gray-400 text-center pt-1">
