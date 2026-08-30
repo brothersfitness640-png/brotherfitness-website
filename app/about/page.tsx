@@ -390,52 +390,108 @@ export default function AboutPage() {
 
 
         {/* ========================================================
-            3. WHO WE ARE
+            3. WHO WE ARE (Asymmetric Feature Spotlight Layout)
         ======================================================== */}
         <section className="py-20 bg-[#070707] relative overflow-hidden">
+          {/* Ambient Glow */}
+          <div className="absolute top-1/2 left-10 w-[500px] h-[500px] bg-[#E5A919]/10 rounded-full blur-[160px] pointer-events-none" />
+
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-3xl mx-auto mb-14">
-              <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
-                WHO WE ARE
-              </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium uppercase tracking-tight text-white mb-4">
-                What Makes Brother&apos;s Fitness Different
-              </h2>
-              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-                We are not just a fitness club. We are a results-first coaching collective where every member receives universal 1-on-1 guidance without extortionate personal training markups.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-7 rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#E5A919]/15 border border-[#E5A919]/30 flex items-center justify-center text-[#E5A919]">
-                  <Users className="w-6 h-6" />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              {/* Left Spotlight Box (5 cols) */}
+              <div className="lg:col-span-5 p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-[#1c1917] via-[#121214] to-black border-2 border-[#E5A919] shadow-2xl relative space-y-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E5A919]/20 border border-[#E5A919] text-[#E5A919] text-xs font-medium uppercase tracking-wider">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>WHO WE ARE</span>
                 </div>
-                <h3 className="text-lg font-medium uppercase text-white">Universal 1-on-1 PT</h3>
-                <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-                  Every candidate is paired with a dedicated trainer who supervises your posture, sets, reps, and progression during every single workout.
+
+                <h2 className="text-3xl sm:text-4xl font-medium uppercase tracking-tight text-white leading-tight">
+                  Built On One Promise: <br />
+                  <span className="text-[#E5A919]">No Member Left Behind</span>
+                </h2>
+
+                <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                  Brother&apos;s Fitness was created to completely rewrite the broken gym experience. We eliminated crowded, unguided floors by pairing every candidate with dedicated 1-on-1 coaching from day one.
                 </p>
+
+                <div className="p-4 rounded-2xl bg-black/60 border border-zinc-800 space-y-1">
+                  <span className="text-xs font-medium text-amber-300 uppercase tracking-wider block">
+                    Our Core Differentiator
+                  </span>
+                  <p className="text-xs text-gray-300 leading-relaxed">
+                    1-on-1 Personal Training is built into the core membership — not an expensive luxury addon.
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => handleOpenTrialModal("Who We Are Trial")}
+                  className="w-full py-3.5 rounded-xl bg-[#E5A919] hover:bg-yellow-400 text-black font-medium text-xs uppercase tracking-wider transition-all shadow-lg shadow-[#E5A919]/25 flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <span>Experience the Brother&apos;s Difference</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
               </div>
 
-              <div className="p-7 rounded-3xl bg-[#121214] border-2 border-[#E5A919]/60 bg-gradient-to-b from-[#1c1917] to-[#121214] space-y-4 shadow-xl">
-                <div className="w-12 h-12 rounded-2xl bg-[#E5A919] flex items-center justify-center text-black">
-                  <ShieldCheck className="w-6 h-6" />
+              {/* Right Stacked Horizontal Feature Rows (7 cols) */}
+              <div className="lg:col-span-7 space-y-4">
+                
+                {/* Feature 01 */}
+                <div className="p-6 rounded-3xl bg-[#121214] border-l-4 border-l-[#E5A919] border-y border-r border-zinc-800/80 hover:border-zinc-700 transition-all flex flex-col sm:flex-row items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-2xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 group-hover:scale-110 transition-transform">
+                    <Users className="w-6 h-6" />
+                  </div>
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-base sm:text-lg font-medium uppercase text-white group-hover:text-[#E5A919] transition-colors">
+                        Universal 1-on-1 Personal Training
+                      </h3>
+                      <span className="text-xs font-medium text-[#E5A919]/60">01</span>
+                    </div>
+                    <p className="text-xs text-gray-400 leading-relaxed">
+                      Every candidate is paired with a dedicated personal trainer who supervises posture, tracks progressive overload, and prevents injuries during every workout session.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-medium uppercase text-white">100% Refund Promise</h3>
-                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                  If you follow our prescribed diet chart and daily workout routine with no physical improvement, your entire membership fee is refunded.
-                </p>
+
+                {/* Feature 02 */}
+                <div className="p-6 rounded-3xl bg-[#121214] border-l-4 border-l-[#E5A919] border-y border-r border-zinc-800/80 hover:border-zinc-700 transition-all flex flex-col sm:flex-row items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-2xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 group-hover:scale-110 transition-transform">
+                    <ShieldCheck className="w-6 h-6" />
+                  </div>
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-base sm:text-lg font-medium uppercase text-white group-hover:text-[#E5A919] transition-colors">
+                        100% Results or Full Money-Back Refund
+                      </h3>
+                      <span className="text-xs font-medium text-[#E5A919]/60">02</span>
+                    </div>
+                    <p className="text-xs text-gray-400 leading-relaxed">
+                      We stand behind our coaching. If you adhere to our prescribed diet chart and daily workout routine with no physical improvement, your full fee is refunded.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Feature 03 */}
+                <div className="p-6 rounded-3xl bg-[#121214] border-l-4 border-l-[#E5A919] border-y border-r border-zinc-800/80 hover:border-zinc-700 transition-all flex flex-col sm:flex-row items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-2xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 group-hover:scale-110 transition-transform">
+                    <Compass className="w-6 h-6" />
+                  </div>
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-base sm:text-lg font-medium uppercase text-white group-hover:text-[#E5A919] transition-colors">
+                        Science-Backed Biomechanics & Nutrition
+                      </h3>
+                      <span className="text-xs font-medium text-[#E5A919]/60">03</span>
+                    </div>
+                    <p className="text-xs text-gray-400 leading-relaxed">
+                      Customized calorie & macro meal blueprints combined with periodized strength training routines designed specifically around your body type and metabolism.
+                    </p>
+                  </div>
+                </div>
+
               </div>
 
-              <div className="p-7 rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#E5A919]/15 border border-[#E5A919]/30 flex items-center justify-center text-[#E5A919]">
-                  <Compass className="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-medium uppercase text-white">Science & Nutrition</h3>
-                <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-                  Custom calculated macro meal plans suited to your lifestyle, combined with progressive biomechanical overload for sustainable health.
-                </p>
-              </div>
             </div>
           </div>
         </section>
@@ -486,7 +542,7 @@ export default function AboutPage() {
 
 
         {/* ========================================================
-            5. OUR VALUES (6 Cards)
+            5. OUR VALUES (Bento Grid with Watermark Numbers & Top Gold Rims)
         ======================================================== */}
         <section className="py-20 bg-[#070707] relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -502,23 +558,46 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* 6-Item Bento Grid with Faint Large Numbers and Top Glowing Accent Line */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {values.map((val, idx) => {
                 const Icon = val.icon;
+                const numberStr = `0${idx + 1}`;
                 return (
                   <div
                     key={idx}
-                    className="p-7 rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all group shadow-lg"
+                    className="p-7 rounded-3xl bg-[#111113] border border-zinc-800 hover:border-[#E5A919] transition-all relative overflow-hidden group flex flex-col justify-between shadow-xl"
                   >
-                    <div className="w-12 h-12 rounded-2xl bg-[#E5A919]/15 border border-[#E5A919]/30 flex items-center justify-center text-[#E5A919] mb-5 group-hover:scale-110 transition-transform">
-                      <Icon className="w-6 h-6" />
+                    {/* Top Glow Accent Strip */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#E5A919] to-transparent opacity-40 group-hover:opacity-100 transition-opacity" />
+
+                    {/* Faint Background Number Watermark */}
+                    <span className="absolute bottom-2 right-4 text-7xl font-medium text-white/[0.03] group-hover:text-[#E5A919]/[0.08] transition-colors pointer-events-none select-none">
+                      {numberStr}
+                    </span>
+
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-between mb-5">
+                        <div className="w-12 h-12 rounded-2xl bg-[#E5A919]/15 border border-[#E5A919]/30 flex items-center justify-center text-[#E5A919] group-hover:scale-110 transition-transform">
+                          <Icon className="w-6 h-6" />
+                        </div>
+                        <span className="text-xs font-medium text-[#E5A919] bg-[#E5A919]/10 px-2.5 py-0.5 rounded-full border border-[#E5A919]/20">
+                          {numberStr}
+                        </span>
+                      </div>
+
+                      <h3 className="text-lg font-medium uppercase text-white mb-2 group-hover:text-[#E5A919] transition-colors">
+                        {val.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                        {val.desc}
+                      </p>
                     </div>
-                    <h3 className="text-lg font-medium uppercase text-white mb-2 group-hover:text-[#E5A919] transition-colors">
-                      {val.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-                      {val.desc}
-                    </p>
+
+                    <div className="relative z-10 pt-4 mt-4 border-t border-zinc-800/80 flex items-center gap-1.5 text-[11px] text-[#E5A919]">
+                      <Check className="w-3.5 h-3.5" />
+                      <span>Foundational Value</span>
+                    </div>
                   </div>
                 );
               })}
@@ -528,49 +607,110 @@ export default function AboutPage() {
 
 
         {/* ========================================================
-            6. WHY CHOOSE US (6 Cards)
+            6. WHY CHOOSE US (3-Column Visual Center Sandwich Layout)
         ======================================================== */}
         <section className="py-20 bg-[#0c0c0e] relative overflow-hidden">
+          {/* Ambient Glow */}
+          <div className="absolute top-1/2 right-1/4 w-[600px] h-[600px] bg-[#E5A919]/10 rounded-full blur-[180px] pointer-events-none" />
+
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-14">
               <span className="text-xs sm:text-sm font-medium uppercase tracking-[0.25em] text-[#E5A919] block mb-2">
                 THE BROTHER&apos;S FITNESS EDGE
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium uppercase tracking-tight text-white mb-4">
-                Why Choose Us
+                Why Choose Brother&apos;s Fitness
               </h2>
               <p className="text-gray-400 text-sm sm:text-base">
-                Discover the distinctive features that set Brother&apos;s Fitness apart from ordinary commercial gyms.
+                Explore our distinct advantages structured for maximum member safety, progression, and satisfaction.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {whyChooseUs.map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="p-7 rounded-3xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all group flex flex-col justify-between shadow-lg"
-                  >
-                    <div>
-                      <div className="w-12 h-12 rounded-2xl bg-[#E5A919]/15 border border-[#E5A919]/30 flex items-center justify-center text-[#E5A919] mb-5 group-hover:scale-110 transition-transform">
-                        <Icon className="w-6 h-6" />
+            {/* 3-Column Split: 3 Left Feature Bars | Center Tall Visual | 3 Right Feature Bars */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+              
+              {/* Left Column (4 cols: 3 feature bars) */}
+              <div className="lg:col-span-4 space-y-4">
+                {whyChooseUs.slice(0, 3).map((item, idx) => {
+                  const Icon = item.icon;
+                  return (
+                    <div
+                      key={idx}
+                      className="p-5 rounded-2xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all group flex items-start gap-3.5 shadow-lg"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 group-hover:scale-110 transition-transform">
+                        <Icon className="w-5 h-5" />
                       </div>
-                      <h3 className="text-base sm:text-lg font-medium uppercase text-white mb-2 group-hover:text-[#E5A919] transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-                        {item.desc}
-                      </p>
+                      <div>
+                        <h3 className="text-sm font-medium uppercase text-white group-hover:text-[#E5A919] transition-colors mb-1">
+                          {item.title}
+                        </h3>
+                        <p className="text-[11px] text-gray-400 leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
                     </div>
+                  );
+                })}
+              </div>
 
-                    <div className="pt-4 mt-4 border-t border-zinc-800/80 flex items-center gap-1.5 text-xs text-[#E5A919] font-medium">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                      <span>Guaranteed Standard</span>
-                    </div>
+              {/* Center Column (4 cols: Tall Gym Visual Showcase Card) */}
+              <div className="lg:col-span-4 relative flex items-center justify-center">
+                <div className="relative w-full h-[430px] rounded-3xl overflow-hidden border-2 border-[#E5A919] shadow-2xl bg-black group">
+                  <Image
+                    src="/img/5.jpeg"
+                    alt="Brother's Fitness 1-on-1 Coaching Floor"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 400px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+
+                  {/* Top Badge */}
+                  <div className="absolute top-4 left-4 right-4 flex justify-center">
+                    <span className="px-3 py-1 rounded-full bg-black/85 border border-[#E5A919]/60 text-[10px] font-medium uppercase tracking-wider text-[#E5A919] backdrop-blur-md">
+                      ★ Universal 1-on-1 Personal Training ★
+                    </span>
                   </div>
-                );
-              })}
+
+                  {/* Bottom Guarantee Banner */}
+                  <div className="absolute bottom-4 left-4 right-4 p-3 rounded-2xl bg-black/90 border border-[#E5A919]/70 backdrop-blur-md text-center">
+                    <div className="flex items-center justify-center gap-1.5 text-xs font-medium text-[#E5A919] uppercase mb-0.5">
+                      <ShieldCheck className="w-4 h-4" />
+                      <span>100% Refund Guarantee</span>
+                    </div>
+                    <p className="text-[10px] text-gray-300">
+                      Follow our strict diet & daily routine — guaranteed results or 100% fee refunded.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column (4 cols: 3 feature bars) */}
+              <div className="lg:col-span-4 space-y-4">
+                {whyChooseUs.slice(3, 6).map((item, idx) => {
+                  const Icon = item.icon;
+                  return (
+                    <div
+                      key={idx}
+                      className="p-5 rounded-2xl bg-[#121214] border border-zinc-800 hover:border-[#E5A919] transition-all group flex items-start gap-3.5 shadow-lg"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-[#E5A919]/15 flex items-center justify-center text-[#E5A919] shrink-0 group-hover:scale-110 transition-transform">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-medium uppercase text-white group-hover:text-[#E5A919] transition-colors mb-1">
+                          {item.title}
+                        </h3>
+                        <p className="text-[11px] text-gray-400 leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
             </div>
           </div>
         </section>
