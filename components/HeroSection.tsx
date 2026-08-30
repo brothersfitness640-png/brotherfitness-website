@@ -121,70 +121,21 @@ export default function HeroSection({ onOpenTrialModal }: HeroSectionProps) {
             </div>
           </div>
 
-          {/* Right Hero Visual: Glowing Gold Circle Emblem & Muscular Athlete */}
-          <div className="lg:col-span-5 flex items-center justify-center relative">
-            
-            {/* Outer Glow Halo */}
-            <div className="absolute w-[360px] h-[360px] sm:w-[460px] sm:h-[460px] rounded-full bg-gradient-to-tr from-[#E5A919]/40 via-[#F59E0B]/20 to-transparent blur-2xl pointer-events-none" />
+          {/* Right Hero Visual: Single full artwork image from public/img/h1.png */}
+          <div className="lg:col-span-5 flex items-center justify-center relative w-full">
+            {/* Ambient Background Glow */}
+            <div className="absolute w-[380px] h-[380px] sm:w-[500px] sm:h-[500px] rounded-full bg-[#E5A919]/15 blur-3xl pointer-events-none" />
 
-            {/* Circular Gold Emblem Container */}
-            <div className="relative w-[340px] h-[340px] sm:w-[440px] sm:h-[440px] rounded-full p-2.5 bg-gradient-to-b from-[#FDE047] via-[#E5A919] to-[#92400E] shadow-[0_0_60px_rgba(229,169,25,0.45)] flex items-center justify-center">
-              
-              {/* Inner Dark Rim */}
-              <div className="relative w-full h-full rounded-full bg-[#0c0c0e] border-4 border-black overflow-hidden flex items-center justify-center">
-                
-                {/* Embedded High Res Muscular Back Photo */}
-                <div className="relative w-full h-full">
-                  <Image
-                    src="/images/hero_back.jpg"
-                    alt="Brother's Fitness Muscular Physique"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 500px"
-                    className="object-cover object-top scale-105 hover:scale-110 transition-transform duration-700"
-                    priority
-                  />
-                  {/* Subtle vignette gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
-                </div>
-
-                {/* Curved Emblem Branding Ring overlay */}
-                <div className="absolute top-4 left-0 right-0 text-center pointer-events-none">
-                  <div className="inline-block px-4 py-1 rounded-full bg-black/85 border border-[#E5A919]/60 backdrop-blur-md">
-                    <span className="text-[12px] sm:text-xs font-black tracking-[0.3em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-[#E5A919] to-amber-500">
-                      ★ BROTHER&apos;S ★
-                    </span>
-                  </div>
-                </div>
-
-                {/* Bottom Badge */}
-                <div className="absolute bottom-4 left-0 right-0 flex justify-center pointer-events-none">
-                  <div className="px-4 py-1.5 rounded-full bg-black/90 border border-[#E5A919]/60 backdrop-blur-md flex items-center gap-2">
-                    <Dumbbell className="w-3.5 h-3.5 text-[#E5A919]" />
-                    <span className="text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-white">
-                      1-on-1 Elite Coaching
-                    </span>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* Floating Floating Gold Guarantee Badge */}
-              <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-gradient-to-br from-[#1c1917] to-black border-2 border-[#E5A919] p-3 sm:p-4 rounded-2xl shadow-2xl shadow-black flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#E5A919] flex items-center justify-center text-black font-black">
-                  <ShieldCheck className="w-6 h-6 text-black" />
-                </div>
-                <div>
-                  <div className="text-[11px] font-bold text-gray-300 uppercase leading-none">
-                    Result Promise
-                  </div>
-                  <div className="text-xs sm:text-sm font-black text-[#E5A919] leading-tight">
-                    100% Refundable
-                  </div>
-                </div>
-              </div>
-
+            <div className="relative w-full max-w-[500px] aspect-square flex items-center justify-center group">
+              <Image
+                src="/img/h1.png"
+                alt="Brother's Fitness Hero Artwork"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
+                className="object-contain drop-shadow-[0_0_40px_rgba(229,169,25,0.35)] group-hover:scale-105 transition-transform duration-700"
+                priority
+              />
             </div>
-
           </div>
 
         </div>
@@ -192,3 +143,4 @@ export default function HeroSection({ onOpenTrialModal }: HeroSectionProps) {
     </section>
   );
 }
+
