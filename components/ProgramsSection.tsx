@@ -17,7 +17,7 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
       title: "Strength Training",
       category: "Heavy Lifting & Power",
       description: "Build raw muscular power, increase compound lift numbers, and strengthen bone density.",
-      image: "/images/program_strength.jpg",
+      image: "/img/1.jpeg",
       icon: Dumbbell,
       highlights: [
         "Periodized progressive overload program",
@@ -31,7 +31,7 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
       title: "Weight Loss",
       category: "Fat Burn & Toning",
       description: "Torch calories, shed stubborn body fat, and sculpt a lean, athletic physique with strict nutrition.",
-      image: "/images/program_fatloss.jpg",
+      image: "/img/2.jpeg",
       icon: Flame,
       highlights: [
         "Metabolic conditioning and HIIT intervals",
@@ -45,7 +45,7 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
       title: "Muscle Building",
       category: "Hypertrophy & Aesthetics",
       description: "Maximize muscle hypertrophy, achieve balanced proportions, and sculpt aesthetic definition.",
-      image: "/images/program_muscle.jpg",
+      image: "/img/3.jpeg",
       icon: Zap,
       highlights: [
         "High-volume hypertrophy programming",
@@ -59,7 +59,7 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
       title: "Personal Training",
       category: "1-on-1 Elite Coaching",
       description: "Our signature offering: dedicated 1-on-1 coaching for every candidate with customized workouts.",
-      image: "/images/facility_pt.jpg",
+      image: "/img/5.jpeg",
       icon: UserCheck,
       highlights: [
         "Assigned personal coach for every workout",
@@ -73,7 +73,7 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
       title: "CrossFit / Functional Training",
       category: "Mobility & Stamina",
       description: "Dynamic functional movement, kettlebell circuits, plyometrics, and athletic conditioning.",
-      image: "/images/program_functional.jpg",
+      image: "/img/6.jpeg",
       icon: Activity,
       highlights: [
         "Kettlebell, battle ropes, and TRX training",
@@ -87,7 +87,7 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
       title: "Cardio Endurance",
       category: "Stamina & Heart Health",
       description: "Improve cardiovascular endurance, lung capacity, and metabolic rate with modern cardio zones.",
-      image: "/images/facility_spacious.jpg",
+      image: "/img/7.jpeg",
       icon: Heart,
       highlights: [
         "High-tech treadmills, stairmasters & rowing machines",
@@ -101,7 +101,7 @@ export default function ProgramsSection({ onOpenTrialModal }: ProgramsSectionPro
       title: "Group Classes",
       category: "HIIT, Zumba & Yoga",
       description: "High-energy group workouts, rhythmic Zumba fitness, and restorative power yoga sessions.",
-      image: "/images/why_choose_trainers.jpg",
+      image: "/img/8.jpeg",
       icon: Users,
       highlights: [
         "Daily scheduled group HIIT and Tabata workouts",

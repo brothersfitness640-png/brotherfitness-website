@@ -23,7 +23,7 @@ export default function AboutGymSection({ onOpenTrialModal }: AboutGymSectionPro
             <div className="relative rounded-3xl overflow-hidden border-2 border-[#E5A919]/50 shadow-2xl group bg-black">
               <div className="relative h-[400px] sm:h-[480px] w-full">
                 <Image
-                  src="/images/why_choose_trainers.jpg"
+                  src="/img/4.jpeg"
                   alt="Brother's Fitness Gym and Coaches"
                   fill
                   sizes="(max-width: 1024px) 100vw, 600px"
